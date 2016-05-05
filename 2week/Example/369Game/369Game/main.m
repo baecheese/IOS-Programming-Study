@@ -8,40 +8,39 @@
 
 #import <Foundation/Foundation.h>
 
+void game369(int num);
+
+int getFirstInteger(int num);
 
 
-void game(int num)
+int main(int argc, const char * argv[])
 {
-    char a = '*';
-    for (int i=1; i<30; i++) {
-        if (i < 10) {
-            if ((i%3)==0) {
-                printf("%c",a);
-            }
-            else {
-                printf("%d",i);
-            }
-        }
-        else if (i >= 10) {
-            int y = i*0.1;
-            if ((y%10)==3*i){
-                printf("%c", a);
-            }
-            int z = y*0.1;
-            if ((z/3)==0){
-                printf("%c", a);
-            }
-            printf("%d",i);
-        }
-        //printf("%d",i);
-    }
-}
-
-int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         NSLog(@"Hello, World!");
-    game(10);
+    game369(10);
     }
     return 0;
+}
+
+//29 이하의 369 게임
+void game369(int num)
+{
+    char zark = '*';
+    
+    for (int i=1; i<30; i++)
+    {
+        int firstNum = getFirstInteger(i);
+        if (firstNum % 3 == 0 && firstNum != 0)
+        {
+            printf("%c ",zark);
+            continue;
+        }
+        printf("%d ",i);
+    }
+}
+
+int getFirstInteger(int num)
+{
+    return num % 10;
 }
