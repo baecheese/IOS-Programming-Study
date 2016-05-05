@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FB3456DA8BFB633564CCDCB3EED20E03797F811D" : 0,
+    "5DAB4EEF85115FE1FEF52E4E575F4CE70E0E74F8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4BF05CD3-A91F-4280-8403-35E4DCE307EF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FB3456DA8BFB633564CCDCB3EED20E03797F811D" : "..",
+    "5DAB4EEF85115FE1FEF52E4E575F4CE70E0E74F8" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FloorSpace",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FloorSpace.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baecheese\/IOS-Programming-Study",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5DAB4EEF85115FE1FEF52E4E575F4CE70E0E74F8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baecheese\/IOS-Programming-Study.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FB3456DA8BFB633564CCDCB3EED20E03797F811D"
+    }
+  ]
+}
