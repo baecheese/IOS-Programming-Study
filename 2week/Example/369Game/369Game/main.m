@@ -13,6 +13,7 @@ bool is369(int num);
 
 int getFirstInteger(int num);
 bool isZzark(int num);
+bool _isZzark(int num, bool flag);
 
 
 int main(int argc, const char * argv[])
@@ -23,49 +24,51 @@ int main(int argc, const char * argv[])
         
         game369(339);
         printf("-------------------------");
-        
-        
     }
     return 0;
 }
 
 void game369(int num)
 {
-    char zark = '*';
-    
     for (int i=1; i<=num; i++)
     {
         if (isZzark(i))
         {
-            printf("%c ",zark);
+            printf(", ");
             continue;
         }
-        printf("%d ",i);
+        printf("%d ,",i);
     }
-}
-
-// 1의 자릿수 구하기
-int getFirstInteger(int num)
-{
-    return num % 10;
 }
 
 bool isZzark(int num)
 {
+    return _isZzark(num, false);
+}
+
+bool _isZzark(int num, bool flag)
+{
     if (is369(num))
     {
-        return true;
+        printf("*");
+        flag = true;
     }
-    else if (num >= 10)
+    if (num >= 10)
     {
-        return isZzark(num / 10);
+        return _isZzark(num / 10, flag);
     }
-    return false;
+    return flag;
 }
 
 bool is369(int num)
 {
     int first = getFirstInteger(num);
     return (first % 3 == 0 && first != 0);
+}
+
+// 1의 자릿수 구하기
+int getFirstInteger(int num)
+{
+    return num % 10;
 }
 
