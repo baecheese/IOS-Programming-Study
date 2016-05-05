@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 float radius = 0;//반지름
-const float PI = 2;//파이 생략
+const float PI = 3.14;
 
 float radiusInput (float userRadius);
 
 float circumferenceCalculator()
 {
-    return radius * PI;
+    return radius * 2 * PI;
 }
 
 
