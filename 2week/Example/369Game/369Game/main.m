@@ -46,6 +46,7 @@ bool isZzark(int num)
     return _isZzark(num, false);
 }
 
+// 잘라가면서 369 있나 체크
 bool _isZzark(int num, bool flag)
 {
     if (is369(num))
@@ -60,6 +61,7 @@ bool _isZzark(int num, bool flag)
     return flag;
 }
 
+//3,6,9이면서 0이 아닌 것
 bool is369(int num)
 {
     int first = getFirstInteger(num);
