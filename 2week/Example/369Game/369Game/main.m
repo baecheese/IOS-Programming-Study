@@ -32,7 +32,7 @@ void game369(int num)
 {
     for (int i=1; i<=num; i++)
     {
-        if (isZzark(i))
+        if (_isZzark(i, false))
         {
             printf(", ");
             continue;
