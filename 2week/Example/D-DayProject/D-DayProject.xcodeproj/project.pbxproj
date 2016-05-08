@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0382484A1CDCF66100FD91B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 038248491CDCF66100FD91B3 /* main.m */; };
+		0377E9791CDFB99500D8F6B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0377E9781CDFB99500D8F6B9 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0377E9781CDFB99500D8F6B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		038248461CDCF66100FD91B3 /* D-DayProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "D-DayProject"; sourceTree = BUILT_PRODUCTS_DIR; };
-		038248491CDCF66100FD91B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		038248481CDCF66100FD91B3 /* D-DayProject */ = {
 			isa = PBXGroup;
 			children = (
-				038248491CDCF66100FD91B3 /* main.m */,
+				0377E9781CDFB99500D8F6B9 /* main.m */,
 			);
 			path = "D-DayProject";
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0382484A1CDCF66100FD91B3 /* main.m in Sources */,
+				0377E9791CDFB99500D8F6B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +239,7 @@
 				0382484F1CDCF66100FD91B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
