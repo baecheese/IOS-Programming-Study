@@ -75,9 +75,6 @@ void dDayInput(int today, int eventday)
     //년도가 같을 때(1년 이하, 개월 수에 따른)
     if (0 == eventdayYear-todayYear && 12 > todayMonth + eventdayMonth)
     {
-        
-        
-        
         //secondMonth~preEventMonth ++
         total += monthlyDay(todayYear, SecondMonth, PreeventdayMonth);
         printf("D-Day는 %d 이다.",total);
