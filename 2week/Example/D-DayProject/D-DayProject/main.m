@@ -15,7 +15,7 @@ bool isError(int startMonth,int endMonth);
 int monthlyDay (int year, int start, int end);
 
 bool isLeapYear(int year);
-int startMonthDay(int startMonth);
+int startMonthDay(int todayYear, int startMonth);
 
 // result
 int total = 0;//마지막 함수에서 출력
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[])
         // insert code here...
         NSLog(@"Hello, World!");
         
-        dDayInput(20160101, 20160319);
+        dDayInput(20160101, 20180319);
         printf(" --------- ");
     }
     return 0;
@@ -49,9 +49,14 @@ void dDayInput(int today, int eventday)
     int todayDay = today%100;
     int eventdayDay = eventday%100;
     
-    //첫 달 일자, 끝 달 일자 ++ ----------------
-    total += startMonthDay(todayMonth)-todayDay+1;//오늘포함
+    //첫 달 일자----------------
+    total += startMonthDay(todayYear, todayMonth)-todayDay+1;//오늘포함
+    //끝달 일자 ++
     total += eventdayDay;
+    
+    //2번째~마지막 바로 전까지
+    int SecondMonth = todayMonth + 1;
+    int PreeventdayMonth = eventdayMonth - 1;
     
     
     ///--- 년도 별 간격------------------------
@@ -60,15 +65,20 @@ void dDayInput(int today, int eventday)
     if (1 <= eventdayYear-todayYear)
     {
         total += (eventdayYear - todayYear)*365;
+        
+        //n년 이후, secondMonth~preEventMonth ++
+        total += monthlyDay(todayYear, SecondMonth, PreeventdayMonth);
+        
+        printf("D-Day는 %d 이다.",total);
     }
     
     //년도가 같을 때(1년 이하, 개월 수에 따른)
     if (0 == eventdayYear-todayYear && 12 > todayMonth + eventdayMonth)
     {
-        //2번째~마지막 바로 전까지
-        int SecondMonth = todayMonth + 1;
-        int PreeventdayMonth = eventdayMonth - 1;
-        //secondMonth~preEventMonth
+        
+        
+        
+        //secondMonth~preEventMonth ++
         total += monthlyDay(todayYear, SecondMonth, PreeventdayMonth);
         printf("D-Day는 %d 이다.",total);
     }
@@ -87,12 +97,27 @@ void dDayInput(int today, int eventday)
 }
 
 //시작 달 전체
-int startMonthDay(int startMonth)
+int startMonthDay(int todayYear, int startMonth)
 {
+    int year = todayYear;
+    int month = startMonth;
+    
     int array[7] = {1, 3, 5, 7, 8, 10, 12};
     if (anyLike(startMonth, array))
     {
         return 31;
+    }
+    
+    else if (month == 2)
+    {
+        if (isLeapYear(year))
+        {
+            return 29;
+        }
+        else
+        {
+            return 28;
+        }
     }
     else
     {
