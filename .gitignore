@@ -27,3 +27,6 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+##scapple
+*.scap
+

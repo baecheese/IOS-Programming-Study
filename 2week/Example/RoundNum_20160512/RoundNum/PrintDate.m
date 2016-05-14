@@ -17,11 +17,10 @@
     if (365 - inputDay < 0) {
         
         NSUInteger year = inputYear;
-        NSUInteger resultMonth;
-        NSUInteger day = inputDay;
-        NSUInteger resultDay;
         NSInteger tempDay;//가져올 체크 일자
         NSInteger count=1;
+        NSUInteger resultMonth;
+        NSUInteger resultDay;
         
         //NSUInteger resultDay;//남은일자
         while (tempDay >= resultDay) {
