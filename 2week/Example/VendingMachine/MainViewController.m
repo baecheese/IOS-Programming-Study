@@ -67,7 +67,7 @@
 -(void)creatView
 {
     UIView *menuView = [[UIView alloc] init];
-    [menuView setBackgroundColor:[UIColor redColor]];
+    [menuView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:menuView];
     self.menuView = menuView;
     {
@@ -75,7 +75,7 @@
         {
             DrinkObject *drinkData = [self.trayBox.drinkKinds objectAtIndex:i];
             CustomButton *drinkBtn = [[CustomButton alloc]init];
-            [drinkBtn setBackgroundColor:[UIColor blueColor]];
+            [drinkBtn setBackgroundColor:[UIColor clearColor]];
             drinkBtn.tag = i;
             drinkBtn.delegate = self;
             [drinkBtn setTite:drinkData.name];
@@ -87,7 +87,7 @@
     }
     
     UIView *input500CoinArea = [[UIView alloc] init];
-    [input500CoinArea setBackgroundColor:[UIColor greenColor]];
+    [input500CoinArea setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:input500CoinArea];
     self.input500CoinArea = input500CoinArea;
     {
@@ -106,7 +106,7 @@
     }
 
     UIView *input100CoinArea = [[UIView alloc] init];
-    [input100CoinArea setBackgroundColor:[UIColor redColor]];
+    [input100CoinArea setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:input100CoinArea];
     self.input100CoinArea = input100CoinArea;
     {
@@ -126,7 +126,7 @@
     }
 
     UIView *moneyControlArea = [[UIView alloc] init];
-    [moneyControlArea setBackgroundColor:[UIColor redColor]];
+    [moneyControlArea setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:moneyControlArea];
     self.moneyControlArea = moneyControlArea;
     {
