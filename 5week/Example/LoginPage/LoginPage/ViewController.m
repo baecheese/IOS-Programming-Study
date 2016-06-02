@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, UINavigationBarDelegate>
 
 @end
 
@@ -22,6 +22,9 @@
     
     self.pwTf.tag = 2;
     self.pwTf.delegate = self;
+    
+    
+    [self navigationBarSetColor];
     
 }
 
@@ -39,7 +42,7 @@ NSInteger count_login = 0;
     __weak ViewController *wself = self;
         
     // 위협 멘트 및 로그인 화면 애니메이션
-    [UIView animateWithDuration:3 delay:0 options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^
                     {
                         [wself.loginView setFrame:CGRectMake(0, 0, loginW, loginH)];
@@ -73,6 +76,16 @@ NSInteger count_login = 0;
     return YES;
 }
 
+
+
+-(void)navigationBarSetColor
+{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+}
 
 
 

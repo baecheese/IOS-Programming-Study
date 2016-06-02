@@ -15,7 +15,7 @@
 		033B60B21CF80550004B71BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B60B01CF80550004B71BF /* LaunchScreen.storyboard */; };
 		033B60BD1CF80550004B71BF /* WebViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 033B60BC1CF80550004B71BF /* WebViewTests.m */; };
 		033B60C81CF80550004B71BF /* WebViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 033B60C71CF80550004B71BF /* WebViewUITests.m */; };
-		033B60D61CF80641004B71BF /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 033B60D51CF80641004B71BF /* image.png */; };
+		0359AEB91CFF43D800BE59A8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0359AEB81CFF43D800BE59A8 /* image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		033B60C31CF80550004B71BF /* WebViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		033B60C71CF80550004B71BF /* WebViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewUITests.m; sourceTree = "<group>"; };
 		033B60C91CF80550004B71BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		033B60D51CF80641004B71BF /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image.png; path = ../../image.png; sourceTree = "<group>"; };
+		0359AEB81CFF43D800BE59A8 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				033B60A81CF80550004B71BF /* ViewController.h */,
 				033B60A91CF80550004B71BF /* ViewController.m */,
 				033B60AB1CF80550004B71BF /* Main.storyboard */,
-				033B60D51CF80641004B71BF /* image.png */,
+				0359AEB81CFF43D800BE59A8 /* image.png */,
 				033B60AE1CF80550004B71BF /* Assets.xcassets */,
 				033B60B01CF80550004B71BF /* LaunchScreen.storyboard */,
 				033B60B31CF80550004B71BF /* Info.plist */,
@@ -250,7 +250,7 @@
 				033B60B21CF80550004B71BF /* LaunchScreen.storyboard in Resources */,
 				033B60AF1CF80550004B71BF /* Assets.xcassets in Resources */,
 				033B60AD1CF80550004B71BF /* Main.storyboard in Resources */,
-				033B60D61CF80641004B71BF /* image.png in Resources */,
+				0359AEB91CFF43D800BE59A8 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

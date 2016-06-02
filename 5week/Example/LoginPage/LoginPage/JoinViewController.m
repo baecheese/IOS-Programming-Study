@@ -8,7 +8,7 @@
 
 #import "JoinViewController.h"
 
-@interface JoinViewController () <UITextFieldDelegate>
+@interface JoinViewController () <UITextFieldDelegate, UINavigationBarDelegate>
 
 @end
 
@@ -101,6 +101,7 @@ NSInteger count_Join = 0;
     
     return YES;
 }
+
 
 
 

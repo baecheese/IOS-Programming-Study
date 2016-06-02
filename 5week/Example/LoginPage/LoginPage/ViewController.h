@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwTf;
 @property (weak, nonatomic) IBOutlet UILabel *kikiLb;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *loginNaviBar;
 
 
 @end
