@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6gM-Cf-m7B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6gM-Cf-m7B">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -77,16 +77,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19g-gE-EKw">
-                                        <rect key="frame" x="280" y="121" width="52" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                        <state key="normal" title="회원가입">
-                                            <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="dGb-gr-1Ua" kind="push" id="svj-bK-Q6b"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-Ky-Toc">
                                         <rect key="frame" x="60" y="80" width="440" height="30"/>
                                         <constraints>
@@ -111,6 +101,19 @@
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="y23-td-47f" kind="push" identifier="LOGIN_TO_MAIN" id="MWD-9t-R2O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19g-gE-EKw">
+                                        <rect key="frame" x="280" y="121" width="52" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="회원가입">
+                                            <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dGb-gr-1Ua" kind="push" id="a6P-x6-Y5q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -188,6 +191,35 @@
             </objects>
             <point key="canvasLocation" x="1280" y="221"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2gp-fi-Y6x">
+            <objects>
+                <viewController id="y23-td-47f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HF5-O3-v5x"/>
+                        <viewControllerLayoutGuide type="bottom" id="rPw-NG-l84"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cps-Dd-ds1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6x-jI-8Pf">
+                                <rect key="frame" x="270" y="65" width="60" height="30"/>
+                                <state key="normal" title="login out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r6x-jI-8Pf" firstAttribute="centerX" secondItem="cps-Dd-ds1" secondAttribute="centerX" id="UTa-Cg-kVI"/>
+                            <constraint firstItem="r6x-jI-8Pf" firstAttribute="top" secondItem="HF5-O3-v5x" secondAttribute="bottom" constant="45" id="xxt-38-nSv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YqR-XN-b1a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aav-2r-r5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="957"/>
+        </scene>
         <!--Join View Controller-->
         <scene sceneID="oAr-Sp-T2C">
             <objects>
@@ -209,16 +241,15 @@
                                 <color key="textColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="정말로 회원가입 하시겠습니까.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-2n-k3R">
+                                <rect key="frame" x="171" y="82" width="271" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-7W-ZL1">
                                 <rect key="frame" x="40" y="200" width="520" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZU-qy-mME">
-                                        <rect key="frame" x="232" y="162" width="56" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                        <state key="normal" title="가입 완료">
-                                            <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FA8-2Z-vmX">
                                         <rect key="frame" x="40" y="25" width="455" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -252,6 +283,17 @@
                                         <color key="textColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZU-qy-mME">
+                                        <rect key="frame" x="232" y="162" width="56" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="가입 완료">
+                                            <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinBtnAction:" destination="dGb-gr-1Ua" eventType="touchUpInside" id="4Wb-MZ-Hxq"/>
+                                            <segue destination="y23-td-47f" kind="push" identifier="JOIN_TO_MAIN" id="4Nb-4h-wN6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="q81-RI-KkN" firstAttribute="top" secondItem="FA8-2Z-vmX" secondAttribute="bottom" constant="15" id="3d7-OO-vZ6"/>
@@ -274,12 +316,6 @@
                                     <constraint firstAttribute="trailing" secondItem="q81-RI-KkN" secondAttribute="trailing" constant="25" id="wlK-cp-DSb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="정말로 회원가입 하시겠습니까.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-2n-k3R">
-                                <rect key="frame" x="171" y="82" width="271" height="43"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -344,4 +380,7 @@
     <resources>
         <image name="space-2.jpg" width="858" height="536"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MWD-9t-R2O"/>
+    </inferredMetricsTieBreakers>
 </document>

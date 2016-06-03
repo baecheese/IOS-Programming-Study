@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UITextFieldDelegate, UINavigationBarDelegate>
+@interface ViewController () <UITextFieldDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -86,6 +86,48 @@ NSInteger count_login = 0;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
+
+
+
+-(BOOL)isCheckLoginWithID:(NSString *)userID userPW:(NSString *)userPW
+{
+    return NO;
+}
+
+
+// segue congtrol
+// 세그로 이동 전 이동을 허용할 것인가를 확인
+// 로그인 화면으로 이동 시, 로그인 여부 확인
+// 회원가입 화면으로 이동 시, 바로 이동
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqualToString:@"LOGIN_TO_MAIN"])
+    {
+        //로그인 가능 여부
+        if ([self isCheckLoginWithID:self.idTf.text userPW:self.pwTf.text])
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"LOGIN_TO_MAIN"])
+    {
+        
+    }
+}
+
 
 
 
