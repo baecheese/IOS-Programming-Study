@@ -5,23 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="gp2-gD-0JN">
-            <objects>
-                <navigationController id="HBH-ra-oj7" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IHB-3f-Ggk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n09-yB-MW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-953" y="150"/>
-        </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -102,7 +89,7 @@
                                             <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="y23-td-47f" kind="push" identifier="LOGIN_TO_MAIN" id="MWD-9t-R2O"/>
+                                            <segue destination="y23-td-47f" kind="modal" identifier="LOGIN_TO_MAIN" modalTransitionStyle="coverVertical" id="24U-Qs-AeE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19g-gE-EKw">
@@ -112,7 +99,7 @@
                                             <color key="titleColor" red="0.97142381440000003" green="0.99479434379999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="dGb-gr-1Ua" kind="push" id="a6P-x6-Y5q"/>
+                                            <segue destination="dGb-gr-1Ua" kind="show" identifier="LOGIN_TO_JOIN" id="zyy-5y-gJY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -181,7 +168,6 @@
                         <outlet property="backImg" destination="6p1-UA-smS" id="ojr-pI-ZeM"/>
                         <outlet property="idTf" destination="p9x-MG-Us6" id="diL-Y6-owd"/>
                         <outlet property="kikiLb" destination="yUX-eQ-YXq" id="GBy-tm-CwD"/>
-                        <outlet property="loginNaviBar" destination="Pjg-Qi-vmw" id="z8q-KF-O1G"/>
                         <outlet property="loginView" destination="waI-x9-rvi" id="2EH-Vf-Dd1"/>
                         <outlet property="pwTf" destination="o6g-Ky-Toc" id="Edn-2l-Q5d"/>
                         <outlet property="tttt" destination="KrG-Hc-RWS" id="Cd1-75-84C"/>
@@ -191,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="1280" y="221"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Page View Controller-->
         <scene sceneID="2gp-fi-Y6x">
             <objects>
-                <viewController id="y23-td-47f" sceneMemberID="viewController">
+                <viewController id="y23-td-47f" customClass="MainPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HF5-O3-v5x"/>
                         <viewControllerLayoutGuide type="bottom" id="rPw-NG-l84"/>
@@ -206,6 +192,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6x-jI-8Pf">
                                 <rect key="frame" x="270" y="65" width="60" height="30"/>
                                 <state key="normal" title="login out"/>
+                                <connections>
+                                    <action selector="loginOutBtn:" destination="y23-td-47f" eventType="touchUpInside" id="ZVM-ng-zHr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,7 +280,7 @@
                                         </state>
                                         <connections>
                                             <action selector="joinBtnAction:" destination="dGb-gr-1Ua" eventType="touchUpInside" id="4Wb-MZ-Hxq"/>
-                                            <segue destination="y23-td-47f" kind="push" identifier="JOIN_TO_MAIN" id="4Nb-4h-wN6"/>
+                                            <segue destination="y23-td-47f" kind="modal" identifier="JOIN_TO_MAIN" id="k1G-x1-uT9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -340,7 +329,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="EkU-c8-Tuj"/>
                     <connections>
-                        <outlet property="idTf" destination="FA8-2Z-vmX" id="zCZ-dl-dCJ"/>
                         <outlet property="jockingJoinLb" destination="sxz-2n-k3R" id="8QF-iR-pKn"/>
                         <outlet property="joinIDTF" destination="FA8-2Z-vmX" id="6HR-Ns-74E"/>
                         <outlet property="joinPWTF" destination="q81-RI-KkN" id="Lym-aR-igm"/>
@@ -369,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MRz-4f-84y"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PuG-TW-c2i"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWy-6s-4c9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,6 +369,6 @@
         <image name="space-2.jpg" width="858" height="536"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MWD-9t-R2O"/>
+        <segue reference="24U-Qs-AeE"/>
     </inferredMetricsTieBreakers>
 </document>

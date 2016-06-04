@@ -6,9 +6,9 @@
 //  Copyright © 2016년 baecheese. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface JoinViewController : ViewController
+@interface JoinViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *joinView;
 @property (weak, nonatomic) IBOutlet UILabel *joinTitle;

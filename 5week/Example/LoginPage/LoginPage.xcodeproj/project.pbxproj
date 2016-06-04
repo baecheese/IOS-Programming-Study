@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032C48F51D01AFC80076DAEB /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 032C48F41D01AFC80076DAEB /* DataCenter.m */; };
+		032C48F71D01B4090076DAEB /* userList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 032C48F61D01B4090076DAEB /* userList.plist */; };
 		033B60DC1CF896F7004B71BF /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033B60DB1CF896F7004B71BF /* JoinViewController.m */; };
 		036D93D61CF1CBB90036EC84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D93D51CF1CBB90036EC84 /* main.m */; };
 		036D93D91CF1CBB90036EC84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D93D81CF1CBB90036EC84 /* AppDelegate.m */; };
-		036D93DC1CF1CBB90036EC84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D93DB1CF1CBB90036EC84 /* ViewController.m */; };
+		036D93DC1CF1CBB90036EC84 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D93DB1CF1CBB90036EC84 /* LoginViewController.m */; };
 		036D93DF1CF1CBB90036EC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036D93DD1CF1CBB90036EC84 /* Main.storyboard */; };
 		036D93E11CF1CBB90036EC84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 036D93E01CF1CBB90036EC84 /* Assets.xcassets */; };
 		036D93E41CF1CBB90036EC84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036D93E21CF1CBB90036EC84 /* LaunchScreen.storyboard */; };
@@ -38,14 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032C48F31D01AFC80076DAEB /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
+		032C48F41D01AFC80076DAEB /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
+		032C48F61D01B4090076DAEB /* userList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userList.plist; sourceTree = "<group>"; };
 		033B60DA1CF896F7004B71BF /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
 		033B60DB1CF896F7004B71BF /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		036D93D11CF1CBB90036EC84 /* LoginPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		036D93D51CF1CBB90036EC84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		036D93D71CF1CBB90036EC84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		036D93D81CF1CBB90036EC84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		036D93DA1CF1CBB90036EC84 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		036D93DB1CF1CBB90036EC84 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		036D93DA1CF1CBB90036EC84 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		036D93DB1CF1CBB90036EC84 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		036D93DE1CF1CBB90036EC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		036D93E01CF1CBB90036EC84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		036D93E31CF1CBB90036EC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,12 +116,15 @@
 			children = (
 				036D93D71CF1CBB90036EC84 /* AppDelegate.h */,
 				036D93D81CF1CBB90036EC84 /* AppDelegate.m */,
-				036D93DA1CF1CBB90036EC84 /* ViewController.h */,
-				036D93DB1CF1CBB90036EC84 /* ViewController.m */,
+				036D93DA1CF1CBB90036EC84 /* LoginViewController.h */,
+				036D93DB1CF1CBB90036EC84 /* LoginViewController.m */,
 				033B60DA1CF896F7004B71BF /* JoinViewController.h */,
 				033B60DB1CF896F7004B71BF /* JoinViewController.m */,
 				0399BA0B1D00082900992A00 /* MainPageViewController.h */,
 				0399BA0C1D00082900992A00 /* MainPageViewController.m */,
+				032C48F31D01AFC80076DAEB /* DataCenter.h */,
+				032C48F41D01AFC80076DAEB /* DataCenter.m */,
+				032C48F61D01B4090076DAEB /* userList.plist */,
 				036D93DD1CF1CBB90036EC84 /* Main.storyboard */,
 				036D93E01CF1CBB90036EC84 /* Assets.xcassets */,
 				036D93E21CF1CBB90036EC84 /* LaunchScreen.storyboard */,
@@ -259,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032C48F71D01B4090076DAEB /* userList.plist in Resources */,
 				03763F701CFEB2BF0038F8E2 /* space-2.jpg in Resources */,
 				036D93E41CF1CBB90036EC84 /* LaunchScreen.storyboard in Resources */,
 				036D93E11CF1CBB90036EC84 /* Assets.xcassets in Resources */,
@@ -288,9 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0399BA0D1D00082900992A00 /* MainPageViewController.m in Sources */,
-				036D93DC1CF1CBB90036EC84 /* ViewController.m in Sources */,
+				036D93DC1CF1CBB90036EC84 /* LoginViewController.m in Sources */,
 				036D93D91CF1CBB90036EC84 /* AppDelegate.m in Sources */,
 				033B60DC1CF896F7004B71BF /* JoinViewController.m in Sources */,
+				032C48F51D01AFC80076DAEB /* DataCenter.m in Sources */,
 				036D93D61CF1CBB90036EC84 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
