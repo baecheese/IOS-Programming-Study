@@ -47,7 +47,7 @@
     /* 파일 위치 불러오기 - 주소 불러오기 */
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = [path objectAtIndex:0];
-    NSString *docuPath = [basePath stringByAppendingPathComponent:fileName];
+    NSString *docuPath = [basePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", fileName]];
     
     /* Doucument folder에 파일이 있는지 확인하고, Bundle에 있는 파일 Document에 복사 */
     NSFileManager *fileManger = [NSFileManager defaultManager];

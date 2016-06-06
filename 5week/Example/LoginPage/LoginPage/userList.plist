@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
+	<key>aaaa</key>
 	<dict>
-		<key>New item</key>
-		<string></string>
-		<key>11</key>
-		<string>111</string>
+		<key>userID</key>
+		<string>aaaa</string>
+		<key>userPW</key>
+		<string>aaaa</string>
 	</dict>
 </dict>
 </plist>
