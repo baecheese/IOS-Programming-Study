@@ -7,11 +7,10 @@
 //
 
 #import "JoinViewController.h"
-#import "DataCenter.h"
+#import "User.h"
+#import "UserRepository.h"
 
 @interface JoinViewController () <UITextFieldDelegate, UINavigationControllerDelegate>
-
-@property (strong) DataCenter* userData;
 
 @end
 
@@ -81,15 +80,6 @@ NSInteger count_Join = 0;
 }
 
 
-/*
- 
- NSArray *userList = [dataInstance callUserInformation];
- NSLog(@"%@", userList);
- [self.navigationController popViewControllerAnimated:YES];
- 
- */
-
-
 /* 화면 이동 허용 */
 
 // segue congtrol
@@ -105,12 +95,18 @@ NSInteger count_Join = 0;
         if (self.isCheckUserData)
         {
             /* 데이터 센터에 유저 정보 저장 */
-            _userData = [DataCenter sharedInstance];
-            [_userData addUserInformation:self.joinIDTF.text userPW:self.joinPWTF.text];
+            UserRepository *userRepository = [[UserRepository alloc]init];
+            User *checkUser = [userRepository findByUserId:self.joinIDTF.text];
             
-            NSMutableDictionary *userList = [_userData findByUserId:self.joinIDTF.text];
-            NSLog(@"저장된 리스트: %@", userList);
+            if (checkUser != nil)
+            {
+                NSLog(@"이미 가입한 유저입니다.");
+                return NO;
+            }
             
+            /* 유저 정보 저장 */
+            [userRepository save:[[User alloc]initWithUser:self.joinIDTF.text userPW:self.joinPWTF.text]];
+            NSLog(@"가입 완료: ID - %@, PW - %@", self.joinIDTF.text, self.joinPWTF.text);
             return YES;
         }
         else
@@ -127,19 +123,19 @@ NSInteger count_Join = 0;
 // 비밀번호 일치 및 빈칸 체크
 -(BOOL)isCheckUserData
 {
-    if ((1 < _joinIDTF.text.length) && (1 < _joinPWTF.text.length) && (_joinPWTF.text == _joinRePWTF.text))
+    if ((1 < self.joinIDTF.text.length) && (1 < self.joinPWTF.text.length) && (_joinPWTF.text == _joinRePWTF.text))
     {
         return YES;
     }
     else
     {
-    return NO;
+        return NO;
     }
 }
 
 
 
-/*
+/* 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"JOIN_TO_MAIN"])

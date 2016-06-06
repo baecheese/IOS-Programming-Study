@@ -12,8 +12,7 @@
 
 + (instancetype)sharedInstance;
 
--(NSMutableDictionary *)callUserInformation;
--(NSMutableDictionary *)findByUserId:(NSString *)userID;
--(void)addUserInformation:(NSString *)userID userPW:(NSString *)userPW;
+-(NSMutableDictionary *)selectDataByKey:(NSString *) dataKey fileName:(NSString *) fileName;
+-(void)addData:(NSDictionary *)data dataKey:(NSString *)dataKey fileName:(NSString *)fileName;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "DataCenter.h"
+#import "UserRepository.h"
+#import "User.h"
 
 @interface LoginViewController () <UITextFieldDelegate, UINavigationControllerDelegate>
 
@@ -100,20 +101,21 @@ NSInteger count_login = 0;
 //빈칸 & 데이터 체크
 -(BOOL)isCheckLoginData:(NSString *)userID userPW:(NSString *)userPW
 {
-    DataCenter *dataCenter = [DataCenter sharedInstance];
-    NSMutableDictionary *user = [dataCenter findByUserId:userID];
-    
-    if ((1 < userID.length) && (1 < userPW.length))
+    if ((1 > userID.length) && (1 > userPW.length))
     {
-        // NSString *pw = [user valueForKey:@"@PW"];
-        NSString *pw = [user valueForKey:@"PW"];
-        if (userPW == pw) {
-                return YES;
-        }
+        NSLog(@"아이디나 패스워드가 빈칸입니다.");
         return NO;
     }
     
-    return NO;
+    UserRepository *userRepo = [[UserRepository alloc]init];
+    User *user = [userRepo findByUserId:userID];
+    
+    if (user.userPW != userPW) {
+        NSLog(@"패스워드가 일치하지 않습니다.");
+        return NO;
+    }
+    
+    return YES;
 }
 
 /*
@@ -125,7 +127,7 @@ NSInteger count_login = 0;
         
     }
 }
-
+*/
 /* navigationBar 색깔 변경 */
 
 -(void)navigationBarSetColor
