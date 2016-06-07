@@ -104,6 +104,7 @@ NSInteger count_login = 0;
 {
     if ((1 > userID.length) && (1 > userPW.length))
     {
+        // 알럿창 띄우기
         NSLog(@"아이디나 패스워드가 빈칸입니다.");
         return NO;
     }
@@ -121,8 +122,7 @@ NSInteger count_login = 0;
 }
 
 /* (todo)
- 세그를 이동한 다음에 어떤 행동을 해야하는지에 대해 (이미 가기로 결정 되어있음)
- 다음 객체에게 무언가를 전달
+ 세그를 이동한 다음에 어떤 행동을 해야하는지에 대해 (이미 가기로 결정 되어있을 때, 다음 객체가 생성되어있는 시점) -> 다음 객체에게 무언가를 전달
  ex 메인 페이지에 데이터를 보낼 것. 그리고 오토 로그인 설정을 yes로 바꿈
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

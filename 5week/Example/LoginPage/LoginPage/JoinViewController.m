@@ -119,8 +119,7 @@ NSInteger count_Join = 0;
 }
 
 
-
-// 비밀번호 일치 및 빈칸 체크
+// 빈칸, 비밀번호 일치, 체크
 -(BOOL)isCheckUserData
 {
     if ((1 < self.joinIDTF.text.length) && (1 < self.joinPWTF.text.length) && (_joinPWTF.text == _joinRePWTF.text))
@@ -129,6 +128,7 @@ NSInteger count_Join = 0;
     }
     else
     {
+        //(알럿창 띄우기)
         return NO;
     }
 }
