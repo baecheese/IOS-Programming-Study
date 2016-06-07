@@ -10,7 +10,7 @@
 #import "UserRepository.h"
 #import "User.h"
 
-@interface LoginViewController () <UITextFieldDelegate, UINavigationControllerDelegate>
+@interface LoginViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) NSMutableDictionary *userData;
 
@@ -102,9 +102,10 @@ NSInteger count_login = 0;
 //빈칸 & 데이터 체크
 -(BOOL)isCheckLoginData:(NSString *)userID userPW:(NSString *)userPW
 {
-    if ((1 > userID.length) && (1 > userPW.length))
+    if ((1 > userID.length) || (1 > userPW.length))
     {
         // 알럿창 띄우기
+        [self showDefaultStyleAlert:@"경고" message:@"아이디, 패스워드를 빠짐없이 작성해주세요." actionMessage:@"yes"];
         NSLog(@"아이디나 패스워드가 빈칸입니다.");
         return NO;
     }
@@ -112,16 +113,19 @@ NSInteger count_login = 0;
     UserRepository *userRepo = [[UserRepository alloc]init];
     User *user = [userRepo findByUserId:userID];
     
-    if ([user isNotEqualPassword:userPW])
+    if (([user isNotEqualPassword:userPW]) || (user == nil))
     {
+        [self showDefaultStyleAlert:@"경고" message:@"회원정보를 확인해주십시오." actionMessage:@"yes"];
         NSLog(@"패스워드가 일치하지 않습니다.");
         return NO;
     }
     
+    
+    NSLog(@"%@", [user userID]);
     return YES;
 }
 
-/* (todo)
+/* (todo) -- 오토로그인 관련 세팅은 prepareForSegue 안에서
  세그를 이동한 다음에 어떤 행동을 해야하는지에 대해 (이미 가기로 결정 되어있을 때, 다음 객체가 생성되어있는 시점) -> 다음 객체에게 무언가를 전달
  ex 메인 페이지에 데이터를 보낼 것. 그리고 오토 로그인 설정을 yes로 바꿈
 
@@ -147,6 +151,19 @@ NSInteger count_login = 0;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
+
+/* alert창 띄우기 */
+
+-(void)showDefaultStyleAlert:(NSString *)titleText message:(NSString *)messageText actionMessage:(NSString *)actionMessage
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:titleText message:messageText preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:actionMessage style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){}];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
 
 /* 애니메이션 */
 

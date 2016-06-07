@@ -23,6 +23,7 @@
 
 - (BOOL)isEqualPassword:(NSString *) password
 {
+    NSLog(@"회원 정보 - 아이디 %@ , 패스워드 %@", self.userID, self.userPW);
     return (self.userPW == password);
 }
 
@@ -30,5 +31,6 @@
 {
     return (self.userPW != password);
 }
+
 
 @end

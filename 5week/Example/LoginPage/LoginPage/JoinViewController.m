@@ -122,10 +122,16 @@ NSInteger count_Join = 0;
 // 빈칸, 비밀번호 일치, 체크
 -(BOOL)isCheckUserData
 {
+    if ((1 > self.joinIDTF.text.length) && (1 > self.joinPWTF.text.length))
+    {
+        return NO;
+    }
+    
     if ((1 < self.joinIDTF.text.length) && (1 < self.joinPWTF.text.length) && (_joinPWTF.text == _joinRePWTF.text))
     {
         return YES;
     }
+    
     else
     {
         //(알럿창 띄우기)
