@@ -99,12 +99,11 @@ NSInteger count_login = 0;
     return NO;
 }
 
-//빈칸 & 데이터 체크
+/* 빈칸 & 데이터 체크 */
 -(BOOL)isCheckLoginData:(NSString *)userID userPW:(NSString *)userPW
 {
     if ((1 > userID.length) || (1 > userPW.length))
     {
-        // 알럿창 띄우기
         [self showDefaultStyleAlert:@"경고" message:@"아이디, 패스워드를 빠짐없이 작성해주세요." actionMessage:@"yes"];
         NSLog(@"아이디나 패스워드가 빈칸입니다.");
         return NO;
@@ -116,12 +115,11 @@ NSInteger count_login = 0;
     if (([user isNotEqualPassword:userPW]) || (user == nil))
     {
         [self showDefaultStyleAlert:@"경고" message:@"회원정보를 확인해주십시오." actionMessage:@"yes"];
-        NSLog(@"패스워드가 일치하지 않습니다.");
+        NSLog(@"패스워드가 일치하지 않거나 유저가 없습니다.");
         return NO;
     }
     
-    
-    NSLog(@"%@", [user userID]);
+    NSLog(@"해당 로그인 아이디 : %@ 패스워드: %@", [user userID], [user userPW]);
     return YES;
 }
 
