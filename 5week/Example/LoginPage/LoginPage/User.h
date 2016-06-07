@@ -14,5 +14,7 @@
 @property (nonatomic, strong) NSString *userPW;
 
 - (instancetype)initWithUser:(NSString *)userID userPW:(NSString *)userPW;
+- (BOOL)isEqualPassword:(NSString *) password;
+- (BOOL)isNotEqualPassword:(NSString *) password;
 
 @end

@@ -68,7 +68,8 @@ NSInteger count_login = 0;
 
 /* 화면 이동 허용 */
 
-// segue congtrol
+// segue congtrol (스토리보드를 사용했기 때문에 세그 관련 설정이 있는 것)
+// 코드로 했다면 해당 바로 isCheck~함수로 바로 보면 됨
 // 세그로 이동 전 이동을 허용할 것인가를 확인
 // 로그인 화면으로 이동 시, 로그인 여부 확인
 // 회원가입 화면으로 이동 시, 바로 이동
@@ -110,7 +111,8 @@ NSInteger count_login = 0;
     UserRepository *userRepo = [[UserRepository alloc]init];
     User *user = [userRepo findByUserId:userID];
     
-    if (user.userPW != userPW) {
+    if ([user isNotEqualPassword:userPW])
+    {
         NSLog(@"패스워드가 일치하지 않습니다.");
         return NO;
     }
@@ -118,7 +120,10 @@ NSInteger count_login = 0;
     return YES;
 }
 
-/*
+/* (todo)
+ 세그를 이동한 다음에 어떤 행동을 해야하는지에 대해 (이미 가기로 결정 되어있음)
+ 다음 객체에게 무언가를 전달
+ ex 메인 페이지에 데이터를 보낼 것. 그리고 오토 로그인 설정을 yes로 바꿈
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -128,10 +133,14 @@ NSInteger count_login = 0;
     }
 }
 */
+
 /* navigationBar 색깔 변경 */
 
 -(void)navigationBarSetColor
 {
+    //[self.navigationController setHidesBarsOnTap:YES];
+    
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];

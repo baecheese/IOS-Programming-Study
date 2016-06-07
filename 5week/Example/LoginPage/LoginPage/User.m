@@ -21,4 +21,14 @@
     return self;
 }
 
+- (BOOL)isEqualPassword:(NSString *) password
+{
+    return (self.userPW == password);
+}
+
+- (BOOL)isNotEqualPassword:(NSString *) password
+{
+    return (self.userPW != password);
+}
+
 @end
