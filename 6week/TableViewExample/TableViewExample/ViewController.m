@@ -12,6 +12,7 @@
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) DataCenter *datas;
+@property (strong, nonatomic) UITableView *tableView;
 @property (weak, nonatomic) NSArray *sortedDataKeys;
 
 @end
@@ -26,15 +27,17 @@
     
 }
 
+#pragma mark - UITableViewDataSource
+
 /* 테이블 뷰 */
 
 /* 생성 */
 - (void) creatTableView
 {
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height - 60) style:UITableViewStylePlain];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height - 60) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
 }
 
 /* section 갯수 */
@@ -44,7 +47,7 @@
     return [[_datas sectionTitles] count];
 }
 
-/* row 갯수 */
+/* row 갯수 - key별 value갯수 */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // NSLog(@"section :::::: %zd",section);
@@ -66,13 +69,21 @@
     return rowNum;
 }
 
-/* cell에 뿌려지는 데이터 */
+/* cell 객체 + 데이터 */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    static NSString *tableViewCellID = @"BasicCell";
+    
+    //만들어진 셀을 가져오는 상황
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewCellID];
+    NSLog(@"index: section - %ld, row - %ld", indexPath.section, indexPath.row);
+    
+    // 만약에 셀이 없으면 만들어서 가져와라
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewCellID];
+        NSLog(@"Make cell for index: %ld - %ld", indexPath.section, indexPath.row);
     }
     
     /* 동물 key - value - image 세팅 */
@@ -80,11 +91,9 @@
     NSArray *animalValueArray = [[_datas animals] valueForKey:animalsKey];
     NSString *animalVlaue = [animalValueArray objectAtIndex:indexPath.row];
     
-    NSString *title = [NSString stringWithFormat:@"%@_%@", animalsKey, animalVlaue];
+    NSString *title = [NSString stringWithFormat:@"%@", animalVlaue];
     [cell.textLabel setText:title];
     cell.imageView.image = [UIImage imageNamed:[_datas imageNameWithAnimal:animalVlaue]];
-    
-    
     
     return cell;
 }
@@ -94,13 +103,25 @@
 {
     return _sortedDataKeys;
 }
+ 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/* 해더 설정 */
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSArray *keys = [_datas sectionTitles];
+    NSString *key = [keys objectAtIndex:section];
+    return key;
 }
 
 
+#pragma mark - UITableViewDelegate
 
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    NSLog(@"didReceiveMemoryWarning!!!!!!!!!!!!!!!!!!!!!");
+}
 
 @end

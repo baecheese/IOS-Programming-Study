@@ -14,7 +14,6 @@
 
 @property (nonatomic,strong) NSDictionary *animals;
 
-
 - (NSDictionary *)allAnimals;
 - (NSArray *)sectionTitles;
 - (NSInteger)sectionCount;
