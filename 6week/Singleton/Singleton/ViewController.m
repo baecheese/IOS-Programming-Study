@@ -11,27 +11,36 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) DataCenter *data;
+
 @end
 
 @implementation ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"--------viewDidLoad-----------");
+    _data = [DataCenter sharedInstance];
+}
+
+
+
+
 - (IBAction)buttonCilk:(UIButton *)sender
 {
     NSLog(@"-----------viewController Action ----------");
-    [[DataCenter sharedInstance] setName:self.nameTf.text];
-    [[DataCenter sharedInstance] printData];
+    [_data setName:self.nameTf.text];
+    [_data printData];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[DataCenter sharedInstance] printData];
+    NSLog(@"--------viewWillAppear-----------");
+    [_data printData];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

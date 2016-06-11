@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()<UIActionSheetDelegate>
+@interface ViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -18,11 +18,8 @@
 
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"Image view touch");
-    
-    
+    NSLog(@"Image view touch처럼 보이는 UITapGestureRecognizer");
     [self showActionSheet];
-    
 }
 
 -(void)showActionSheet
@@ -69,34 +66,43 @@
     else
     {
         UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        
         [pickerController setSourceType:sourceType];
+        [pickerController setDelegate:self];
+        
+        // picker를 통한 이미지 수정 허용
+        pickerController.allowsEditing = YES;
+        
+        //picker를 모달로 보여준다.
         [self presentViewController:pickerController animated:YES completion:nil];
     }
 }
 
-- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+#pragma mark - UIImagePicker Controller Delegate
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"actionSheetCancel");
+    //picker를 모달로 내려준다.
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    NSLog(@"willPresentActionSheet");
+    // 라이브러리에서 선택한 이미지를 받음
+    UIImage *pickedOriginalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // 수정할 이미지는 새로 키를 변경
+    UIImage *eiditedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    // 처음에 만든 이미지뷰에 set
+    //[self.imageView setImage:pickedOriginalImage];
+    
+    self.imageView.image = eiditedImage;
+    
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)didPresentActionSheet:(UIActionSheet *)actionSheet
-{
-    NSLog(@"didPresentActionSheet");
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"willDismissWithButtonIndex");
-}
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"didDismissWithButtonIndex");
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
