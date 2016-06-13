@@ -91,7 +91,7 @@
     // 라이브러리에서 선택한 이미지를 받음
     UIImage *pickedOriginalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    // 수정할 이미지는 새로 키를 변경
+    // 수정할 이미지는 새로 키를 변경ㅋ
     UIImage *eiditedImage = [info objectForKey:UIImagePickerControllerEditedImage];
     
     // 처음에 만든 이미지뷰에 set
