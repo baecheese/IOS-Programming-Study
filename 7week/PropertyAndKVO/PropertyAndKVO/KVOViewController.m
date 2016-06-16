@@ -37,7 +37,7 @@
 // change - 어떤 것이 바뀐 것인지, 어떤 것이 예전값인지 딕셔너리로 들어옴.
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
-    //NSLog(@"%@", change);
+    NSLog(@"%@ / %@ / %@ / %@", keyPath, object, change, context);
     
     // 컬렉션에는 참조형 객체만 들어갈 수 있다.
     NSNumber *kindValue = [change objectForKey:NSKeyValueChangeKindKey];

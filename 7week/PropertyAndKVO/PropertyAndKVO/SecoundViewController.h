@@ -8,6 +8,6 @@
 
 #import "ViewController.h"
 
-@interface SecoundViewController : ViewController
+@interface SecoundViewController : UIViewController
 
 @end

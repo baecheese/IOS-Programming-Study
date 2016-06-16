@@ -14,5 +14,6 @@
 
 -(NSMutableDictionary *)selectDataByKey:(NSString *) dataKey fileName:(NSString *) fileName;
 -(void)addData:(NSDictionary *)data dataKey:(NSString *)dataKey fileName:(NSString *)fileName;
+-(NSArray<NSMutableDictionary *> *)selectDatasByKeys:(NSString *) fileName dataKeys:(NSArray *) dataKeys;
 
 @end

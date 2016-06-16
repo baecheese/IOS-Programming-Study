@@ -30,6 +30,16 @@
     return [datas valueForKey:dataKey];
 }
 
+-(NSArray<NSMutableDictionary *> *)selectDatasByKeys:(NSString *) fileName dataKeys:(NSArray *) dataKeys
+{
+    NSMutableArray *dataArray = [NSMutableArray new];
+    
+    for(NSString *dataKey in dataKeys) {
+        [dataArray addObject:[self selectDataByKey:dataKey fileName:fileName]];
+    }
+    return dataArray;
+}
+
 -(NSMutableDictionary *)readDataFile:(NSString *) fileName
 {
     /* 파일 위치 불러오기 - 주소 불러오기 */

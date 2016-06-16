@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5x-kz-rp8">
+                                <rect key="frame" x="300" y="20" width="300" height="580"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-aM-7vt">
+                                <rect key="frame" x="235" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clik:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Egf-zX-FH9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    1    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUg-Kv-l8W">
+                                <rect key="frame" x="234" y="71" width="58" height="154"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dik-AA-wkf">
+                                <rect key="frame" x="0.0" y="20" width="300" height="580"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x5x-kz-rp8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="2oD-ol-WkY"/>
+                            <constraint firstAttribute="trailing" secondItem="x5x-kz-rp8" secondAttribute="trailing" id="F9l-Y5-qw5"/>
+                            <constraint firstItem="x5x-kz-rp8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Gm3-qg-zx4"/>
+                            <constraint firstAttribute="trailing" secondItem="x5x-kz-rp8" secondAttribute="trailing" id="H5w-bJ-NEE"/>
+                            <constraint firstItem="x5x-kz-rp8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="HQn-G7-dql"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x5x-kz-rp8" secondAttribute="bottom" id="MEE-jJ-56V"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dik-AA-wkf" secondAttribute="bottom" id="QtI-zh-HqI"/>
+                            <constraint firstItem="dik-AA-wkf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Tbt-hf-o6e"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x5x-kz-rp8" secondAttribute="bottom" constant="526" id="WFB-0T-0TP"/>
+                            <constraint firstItem="x5x-kz-rp8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZnG-Eu-12N"/>
+                            <constraint firstItem="dik-AA-wkf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="jBr-mh-VeF"/>
+                            <constraint firstItem="x5x-kz-rp8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="jpn-WC-Rr0"/>
+                            <constraint firstItem="dik-AA-wkf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="vFq-ys-aLn"/>
+                            <constraint firstItem="dik-AA-wkf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xFb-V7-vra"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jBr-mh-VeF"/>
+                                <exclude reference="F9l-Y5-qw5"/>
+                                <exclude reference="Gm3-qg-zx4"/>
+                                <exclude reference="HQn-G7-dql"/>
+                                <exclude reference="jpn-WC-Rr0"/>
+                                <exclude reference="WFB-0T-0TP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="Lb" destination="x5x-kz-rp8" id="VWz-uo-M9a"/>
+                        <outlet property="countLabel" destination="TUg-Kv-l8W" id="r6l-eD-B0L"/>
+                        <outlet property="textView" destination="dik-AA-wkf" id="oLE-Oj-tMn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="339"/>
+        </scene>
+    </scenes>
+</document>

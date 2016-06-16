@@ -28,6 +28,8 @@
 }
 - (IBAction)btnClike:(UIButton *)sender
 {
+    /* 네비게이션 첫 번째 viewController 가져와서 count 변수 접근 & 변경 */
+    
     NSArray *viewControllers = self.navigationController.viewControllers;
     
     ViewController *firstViewController = viewControllers.firstObject;
@@ -45,7 +47,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
+    // Get the new view controllesr using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 */

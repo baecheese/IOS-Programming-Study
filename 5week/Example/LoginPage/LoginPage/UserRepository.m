@@ -39,6 +39,17 @@
     return [self dictionaryToUser:data];
 }
 
+- (NSArray<User *> *) findAllByUserIds:(NSArray *) userIds
+{
+    NSArray<NSMutableDictionary *> *datas = [_datas selectDatasByKeys:_dataFileName dataKeys:userIds];
+    
+    NSMutableArray<User *> *resultArray = [NSMutableArray new];
+    for (NSMutableDictionary *dict in datas) {
+        [resultArray addObject:[self dictionaryToUser:dict]];
+    }
+    return resultArray;
+}
+
 /* 데이터 센터에 저장 */
 -(void) save:(User *) user
 {

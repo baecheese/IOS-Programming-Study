@@ -8,6 +8,6 @@
 
 #import "ViewController.h"
 
-@interface KVOViewController : ViewController
+@interface KVOViewController : UIViewController
 
 @end

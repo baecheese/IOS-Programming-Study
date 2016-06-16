@@ -12,6 +12,8 @@
 @interface UserRepository : NSObject
 
 - (User *) findByUserId:(NSString *)userId;
+- (NSArray<User *> *) findAllByUserIds:(NSArray *) userIds;
 - (void) save:(User *) user;
+- (void) saveAll:(NSArray<User *> *) users;
 
 @end
