@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSThread *thread;
 @property (weak, nonatomic) IBOutlet UILabel *countNumLabel;
+@property (nonatomic) NSInteger number;
 
 @end
 
@@ -20,35 +21,58 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 첫 시작 숫자 = 0
+    self.number = 0;
     
 }
 
+// 시작
 - (IBAction)startBtnClik:(UIButton *)sender {
-    
+    // 시작 또 누르면
+    if (self.thread != nil) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"경고" message:@"현재 타이머 진행 중입니다. 멈추시고 다시 시작해주세요." delegate:self cancelButtonTitle:nil otherButtonTitles:@"YES", nil];
+        
+        // alert창을 띄우는 method는 show이다.
+        [alert show];
+    }
+    else {
     /* 스레드 객체로 만들어서 하는 방법 */
-    
      self.thread = [[NSThread alloc]
-     initWithTarget:self selector:@selector(watchStart:) object:nil];
+     initWithTarget:self selector:@selector(watchAction:) object:nil];
      [self.thread start];
-    
-    
+    }
 }
 
+// 멈춤 버튼
 - (IBAction)stopBtnClik:(UIButton *)sender {
-    NSLog(@"-------stop--------");
     [self.thread cancel];
-    //self.thread = nil;
+    
+    // 멈춤하며 내부 number에 값 저장
+    self.number = [self.countNumLabel.text integerValue];
+    
+    NSLog(@"-------stop--------");
 }
 
--(void)watchStart:(NSThread *)thread
+// reset
+- (IBAction)reset:(UIButton *)sender {
+    [self.thread cancel];
+    self.number = 0;
+    self.countNumLabel.text = @"0";
+    
+    NSLog(@"-------reset--------");
+}
+
+// 위에 number로 시작하게
+-(void)watchAction:(NSThread *)thread
 {
-    NSLog(@"-------start--------");
-    NSInteger i = 0;
+    NSInteger i = self.number;
     while (self.thread.isCancelled == NO) {
         i++;
+        /* waitUntilDone이 YES면 main thread가 돌 때에는 main에 작업을 추가할 수 없다. 독점하는 것. */
         [self performSelectorOnMainThread:@selector(changeDisplay:) withObject:[NSNumber numberWithInteger:i] waitUntilDone:YES];
         [NSThread sleepForTimeInterval:1];
     }
+    self.thread = nil;
 }
 
 -(void) changeDisplay:(NSNumber *)number

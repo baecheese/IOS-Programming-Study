@@ -58,6 +58,9 @@
                                 <rect key="frame" x="49" y="94" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="g7m-fn-DRj" id="mNe-wO-Ldb"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lf0-Wb-zsm">
                                 <rect key="frame" x="169" y="94" width="30" height="30"/>

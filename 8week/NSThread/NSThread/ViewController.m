@@ -19,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
-    
     
     // 바로 이걸 돌리면 이 부분이 끝나야 View가 보임
     /*

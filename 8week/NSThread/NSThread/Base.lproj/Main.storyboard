@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6d-Uu-ZSV">
                                 <rect key="frame" x="48" y="96" width="56" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyh-h2-IdM">
@@ -61,7 +61,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSa-mB-QSJ">
                                 <rect key="frame" x="33" y="129" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -100,7 +100,6 @@
                                         <rect key="frame" x="243" y="431" width="32" height="30"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
-                                            <action selector="startBtnClik:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="sJE-Z5-FqR"/>
                                             <action selector="stopBtnClik:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="zty-xI-ckR"/>
                                         </connections>
                                     </button>
@@ -111,14 +110,23 @@
                                             <action selector="startBtnClik:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="cyd-pA-zHV"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXW-ib-OqU">
+                                        <rect key="frame" x="242" y="469" width="35" height="30"/>
+                                        <state key="normal" title="reset"/>
+                                        <connections>
+                                            <action selector="reset:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="11T-Rm-Rur"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="MXW-ib-OqU" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="0ma-om-4TS"/>
                                     <constraint firstItem="GQd-k8-KrF" firstAttribute="centerY" secondItem="XdU-vm-qY3" secondAttribute="centerY" id="61A-3x-hAy"/>
                                     <constraint firstItem="JbJ-67-z6h" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="TQq-6c-gej"/>
                                     <constraint firstItem="vOD-iN-phS" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="agw-If-IsF"/>
                                     <constraint firstItem="vOD-iN-phS" firstAttribute="top" secondItem="GQd-k8-KrF" secondAttribute="bottom" constant="30" id="chE-EU-CO7"/>
                                     <constraint firstItem="JbJ-67-z6h" firstAttribute="top" secondItem="vOD-iN-phS" secondAttribute="bottom" constant="8" id="h8n-bE-bex"/>
+                                    <constraint firstItem="MXW-ib-OqU" firstAttribute="top" secondItem="JbJ-67-z6h" secondAttribute="bottom" constant="8" id="lC0-EW-Oe1"/>
                                     <constraint firstItem="GQd-k8-KrF" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="sot-e8-yHD"/>
                                 </constraints>
                             </view>
