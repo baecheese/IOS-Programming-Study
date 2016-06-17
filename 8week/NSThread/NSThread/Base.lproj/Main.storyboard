@@ -117,34 +117,16 @@
                                             <action selector="reset:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="11T-Rm-Rur"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="On1-l9-hOo">
-                                        <rect key="frame" x="127" y="159" width="265" height="82"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31i-Jh-nMK">
-                                        <rect key="frame" x="245" y="109" width="31" height="30"/>
-                                        <state key="normal" title="muti"/>
-                                        <connections>
-                                            <action selector="startBtnClik:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="e8w-YY-wga"/>
-                                            <action selector="waitNOBtn:" destination="hqE-XJ-gwi" eventType="touchUpInside" id="0eg-hu-n5m"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="MXW-ib-OqU" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="0ma-om-4TS"/>
                                     <constraint firstItem="GQd-k8-KrF" firstAttribute="centerY" secondItem="XdU-vm-qY3" secondAttribute="centerY" id="61A-3x-hAy"/>
-                                    <constraint firstItem="On1-l9-hOo" firstAttribute="top" secondItem="31i-Jh-nMK" secondAttribute="bottom" constant="20" id="Amu-7B-6aI"/>
                                     <constraint firstItem="JbJ-67-z6h" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="TQq-6c-gej"/>
                                     <constraint firstItem="vOD-iN-phS" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="agw-If-IsF"/>
                                     <constraint firstItem="vOD-iN-phS" firstAttribute="top" secondItem="GQd-k8-KrF" secondAttribute="bottom" constant="30" id="chE-EU-CO7"/>
-                                    <constraint firstItem="On1-l9-hOo" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="cuL-C4-Olx"/>
                                     <constraint firstItem="JbJ-67-z6h" firstAttribute="top" secondItem="vOD-iN-phS" secondAttribute="bottom" constant="8" id="h8n-bE-bex"/>
-                                    <constraint firstItem="GQd-k8-KrF" firstAttribute="top" secondItem="On1-l9-hOo" secondAttribute="bottom" constant="40" id="kvV-yk-qIb"/>
                                     <constraint firstItem="MXW-ib-OqU" firstAttribute="top" secondItem="JbJ-67-z6h" secondAttribute="bottom" constant="8" id="lC0-EW-Oe1"/>
-                                    <constraint firstItem="31i-Jh-nMK" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="nal-dg-tzO"/>
                                     <constraint firstItem="GQd-k8-KrF" firstAttribute="centerX" secondItem="XdU-vm-qY3" secondAttribute="centerX" id="sot-e8-yHD"/>
                                 </constraints>
                             </view>
@@ -159,7 +141,6 @@
                     </view>
                     <connections>
                         <outlet property="countNumLabel" destination="GQd-k8-KrF" id="PdB-uo-089"/>
-                        <outlet property="mutiThreadLabel" destination="On1-l9-hOo" id="4GQ-lo-CXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-y1-siq" userLabel="First Responder" sceneMemberID="firstResponder"/>

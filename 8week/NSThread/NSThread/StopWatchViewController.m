@@ -14,10 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countNumLabel;
 @property (nonatomic) NSInteger number;
 
-@property (nonatomic) BOOL isMuti;
-@property (nonatomic) NSInteger number2;
-@property (weak, nonatomic) IBOutlet UILabel *mutiThreadLabel;
-
 @end
 
 @implementation StopWatchViewController
@@ -27,8 +23,6 @@
     
     // 첫 시작 숫자 = 0
     self.number = 0;
-    
-    self.isMuti = NO;
     
 }
 
@@ -59,7 +53,6 @@
     NSLog(@"-------stop--------");
 }
 
-
 // reset
 - (IBAction)reset:(UIButton *)sender {
     [self.thread cancel];
@@ -69,49 +62,23 @@
     NSLog(@"-------reset--------");
 }
 
-
 // 위에 number로 시작하게
 -(void)watchAction:(NSThread *)thread
 {
+    NSInteger i = self.number;
     while (self.thread.isCancelled == NO) {
-        
-        
-        self.number++;
-        
+        i++;
         /* waitUntilDone이 YES면 main thread가 돌 때에는 main에 작업을 추가할 수 없다. 독점하는 것. */
-        [self performSelectorOnMainThread:@selector(changeDisplay:) withObject:[NSNumber numberWithInteger:self.number] waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(changeDisplay:) withObject:[NSNumber numberWithInteger:i] waitUntilDone:YES];
         [NSThread sleepForTimeInterval:1];
-        
-        // --todo (멀티로 했을 때 넣는 넘버 다르게 하기) 
-        if (self.isMuti == YES) {
-            <#statements#>
-        }
-        
-        
     }
     self.thread = nil;
 }
 
-
-/* 기본 라벨 바꾸기*/
--(void)changeDisplay:(NSNumber *)number
+-(void) changeDisplay:(NSNumber *)number
 {
     [self.countNumLabel setText:[NSString stringWithFormat:@"%@", number]];
 }
-
-
-/* ---------------------------------------------------- */
-// waitUntilDone NO ---> 얘도 thread 로 접근
-- (IBAction)waitNOBtn:(id)sender
-{
-    self.thread = [[NSThread alloc]
-                   initWithTarget:self selector:@selector(watchAction:) object:nil];
-    
-    self.isMuti = YES;
-    [self.thread start];
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
