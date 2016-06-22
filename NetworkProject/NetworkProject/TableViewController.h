@@ -10,4 +10,7 @@
 
 @interface TableViewController : UITableViewController
 
+@property (nonatomic) NSInteger selectRowIndex;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *imageDatas;
+
 @end

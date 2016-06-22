@@ -15,7 +15,7 @@
 
 // table에 올릴 데이터 array
 @property (nonatomic, strong) NSMutableArray *datas;
-@property (nonatomic, strong) NSMutableArray<UIImage *> *imageDatas;
+// 이미지는 외부 프로퍼티
 
 // 다음 장에서 받을 이미지
 @property (weak, nonatomic) UIImage *imageView;
@@ -90,13 +90,14 @@
     cell.textLabel.text = [self.datas objectAtIndex:indexPath.row];
     cell.imageView.image = [self.imageDatas objectAtIndex:indexPath.row];
     
-    // 새로 한거 안들어가면 addObject가 안된것
-    
     return cell;
 }
 
 
 // 셀 클릭 했을 때 옆 화면으로 가면서 해당 배열에 대항하는 셀 정보 다음 칸에서 받기 -> 프로퍼티로 해당 정보 세팅해놓기 --  todo
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectRowIndex = indexPath.row;
+}
 
 
  // Override to support conditional editing of the table view.

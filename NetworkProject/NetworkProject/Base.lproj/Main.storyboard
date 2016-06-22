@@ -18,9 +18,12 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jMf-ou-Cbn" id="bq6-nG-5c9">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uWf-7Q-Z0c" kind="show" id="rxP-qY-fTT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,16 +60,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9b-vy-r8y">
-                                <rect key="frame" x="161" y="220" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9b-vy-r8y">
+                                <rect key="frame" x="187" y="230" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtq-kp-LvW">
-                                <rect key="frame" x="20" y="107" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="k9b-vy-r8y" secondAttribute="trailing" id="3JM-96-8kR"/>
+                            <constraint firstItem="k9b-vy-r8y" firstAttribute="centerX" secondItem="QlE-GZ-EZV" secondAttribute="centerX" id="9lI-hq-8UT"/>
+                            <constraint firstItem="k9b-vy-r8y" firstAttribute="centerY" secondItem="QlE-GZ-EZV" secondAttribute="centerY" id="FPu-dM-lFg"/>
+                            <constraint firstItem="k9b-vy-r8y" firstAttribute="leading" secondItem="QlE-GZ-EZV" secondAttribute="leading" id="imm-xL-cGb"/>
+                            <constraint firstItem="k9b-vy-r8y" firstAttribute="top" secondItem="jBV-IC-7hc" secondAttribute="bottom" constant="200" id="kum-8f-j7p"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="k9b-vy-r8y" id="w0p-PQ-P0q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IC1-GR-XOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

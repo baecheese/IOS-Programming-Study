@@ -7,18 +7,32 @@
 //
 
 #import "ImageViewController.h"
+#import "TableViewController.h"
 
 @interface ImageViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
 @implementation ImageViewController
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    //전화면 imageView 가져오기 ---- 화면 나타나기 전에 가져오는 건 안되나?
+    TableViewController *tableVC = [self.navigationController.viewControllers firstObject];
+    
+    NSMutableArray *imageDatas = [tableVC imageDatas];
+    NSInteger selectRowIndex = [tableVC selectRowIndex];
+    self.imageView = [imageDatas objectAtIndex:selectRowIndex];
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //전화면 imageView 가져오기
+    
     
 }
 
