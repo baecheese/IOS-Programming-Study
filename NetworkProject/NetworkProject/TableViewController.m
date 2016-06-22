@@ -1,0 +1,269 @@
+//
+//  TableViewController.m
+//  NetworkProject
+//
+//  Created by 배지영 on 2016. 6. 22..
+//  Copyright © 2016년 baecheese. All rights reserved.
+//
+
+#import "TableViewController.h"
+#import "ImageViewController.h"
+
+@interface TableViewController ()<UIImagePickerControllerDelegate>
+
+@property (nonatomic) NSInteger countsUploadCount;
+
+// table에 올릴 데이터 array
+@property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *imageDatas;
+
+// 다음 장에서 받을 이미지
+@property (weak, nonatomic) UIImage *imageView;
+
+@end
+
+@implementation TableViewController
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    if (self.countsUploadCount == 1) {
+        NSLog(@"사진 업로드");
+    }
+    else {
+        [self addAlertWithTextField:@"id" message:@"id를 입력해주세요" setPlaceholder:@"100~120까지" useProperty:NO];
+    }
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // ⭐️ 초기화
+    NSMutableArray *datas = [[NSMutableArray alloc]initWithCapacity:1];
+    NSMutableArray<UIImage *> *imageDats = [[NSMutableArray alloc] initWithCapacity:1];
+    self.datas = datas;
+    self.imageDatas = imageDats;
+    
+}
+
+
+
+- (IBAction)refreshBarButton:(id)sender {
+    //reloadData - 테이블 전체 새로고침
+    [self.tableView reloadData];
+    NSLog(@"테이블뷰 재 로딩");
+    
+}
+
+- (IBAction)addBarButton:(id)sender {
+    
+    self.countsUploadCount = 1;
+    NSLog(@"count %ld", (long)self.countsUploadCount);
+    
+    // filker 화면
+    [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // 데이터 갯수
+    return self.imageDatas.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = [self.datas objectAtIndex:indexPath.row];
+    cell.imageView.image = [self.imageDatas objectAtIndex:indexPath.row];
+    
+    // 새로 한거 안들어가면 addObject가 안된것
+    
+    return cell;
+}
+
+
+// 셀 클릭 했을 때 옆 화면으로 가면서 해당 배열에 대항하는 셀 정보 다음 칸에서 받기 -> 프로퍼티로 해당 정보 세팅해놓기 --  todo
+
+
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+     
+     return YES;
+ }
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [self.datas removeObjectAtIndex:indexPath.row];
+        [self.imageDatas removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0f;
+}
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+
+/* 사진 앨범 접근 */
+
+-(void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
+{
+    /* 소스타입 사용 가능한 상황인지 ex 시뮬레이터는 카메라 안됨 */
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType] == NO)
+    {
+        // 사용자에겐 allert 띄워주기
+        NSLog(@"이 소스는 못쓰낟");
+    }
+    else
+    {
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        
+        [pickerController setSourceType:sourceType];
+        [pickerController setDelegate:self];
+        
+        // picker를 통한 이미지 수정 허용
+        pickerController.allowsEditing = YES;
+        
+        //picker를 모달로 보여준다.
+        [self presentViewController:pickerController animated:YES completion:nil];
+        
+    }
+}
+
+
+#pragma mark - UIImagePicker Controller Delegate
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    //picker를 모달로 내려준다.
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    // 수정할 이미지는 새로 키를 변경
+    UIImage *pickerEiditedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    // 선택 이미지 프로퍼티 데이터에 넣기
+    [self.imageDatas addObject: pickerEiditedImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self addAlertWithTextField:@"사진 업로드" message:@"사진 제목을 입력하세요" setPlaceholder:@"사진 제목" useProperty:YES];
+    }];
+}
+
+
+#pragma mark - Custom Method
+
+// 다음 화면으로 ㄱ
+-(void)moveNextViewController:(NSString *)stroyboardIdentifier {
+    UIStoryboard *storyboard = self.storyboard;
+    ImageViewController *svc = [storyboard instantiateViewControllerWithIdentifier:stroyboardIdentifier];
+    [self presentViewController:svc animated:YES completion:nil];
+}
+
+// alert
+-(void)addAlertWithTextField:(NSString *)title message:(NSString *) message setPlaceholder:(NSString *)placeholder useProperty:(BOOL)useProperty {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (1 > alert.textFields.firstObject.text.length) {
+            // 입력값이 없을 때
+            [self showWarningAboutNullTextToAlert:^(UIAlertAction *action) {
+                // 다시 적으라고 하기
+                [self addAlertWithTextField:title message:message setPlaceholder:placeholder useProperty:useProperty];// ----todo --> 텍스트를 테이블로 옮겨야함. 사진명을 옮기려면 리로드해야할듯?
+            }];
+        }
+        else {
+            // 전해질 객체 없을 때
+            if (useProperty == NO) {
+                NSLog(@"입력 시, 텍스트필드 id 네트워크 연결");
+                NSLog(@"전해지는 데이터 없이 알럿만 안내");
+            }
+            else {
+                // 전해질 객체 배열에 넣기
+                UITextField *imageNameTextField = alert.textFields.firstObject;
+                NSString *rowData = imageNameTextField.text;
+                [self.datas addObject:rowData];
+                [self.tableView reloadData];
+            }
+        }
+    }];
+    
+    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alert addAction:okButton];
+    [alert addAction:cancelButton];
+    
+    // alert 내에 텍스트필드 추가
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        [textField setPlaceholder:placeholder];
+    }];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+// null text 경고창
+// handler로 경고창 후에 띄울 창 input
+-(void)showWarningAboutNullTextToAlert:(void (^ __nullable)(UIAlertAction *action))handler
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"경고" message:@"올바른 입력값을 넣어주세요!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:handler];
+    
+    [alert addAction:okButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+
+
+
+@end
