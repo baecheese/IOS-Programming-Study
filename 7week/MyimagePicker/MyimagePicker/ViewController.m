@@ -88,6 +88,7 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    NSLog(@"선택");
     // 라이브러리에서 선택한 이미지를 받음
     UIImage *pickedOriginalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
