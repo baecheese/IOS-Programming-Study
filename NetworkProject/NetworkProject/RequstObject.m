@@ -264,7 +264,7 @@
         if (data) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             
-            if ([dict[@"code"] isEqualToString:@200]) {
+            if ([dict[@"code"] isEqualToNumber:@200]) {
                 NSLog(@"success");
                 
                 NSArray *contentsArray = dict[@"content"];

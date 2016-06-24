@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		037961CA1D1CC6B30082AA10 /* RequstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 037961C91D1CC6B30082AA10 /* RequstObject.m */; };
+		037961CE1D1D0C820082AA10 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 037961CD1D1D0C820082AA10 /* placeholder.png */; };
 		03E96BEE1D1A5E37002AC38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E96BED1D1A5E37002AC38B /* main.m */; };
 		03E96BF11D1A5E37002AC38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E96BF01D1A5E37002AC38B /* AppDelegate.m */; };
 		03E96BF71D1A5E37002AC38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E96BF51D1A5E37002AC38B /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		037961C81D1CC6B30082AA10 /* RequstObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequstObject.h; sourceTree = "<group>"; };
 		037961C91D1CC6B30082AA10 /* RequstObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequstObject.m; sourceTree = "<group>"; };
+		037961CD1D1D0C820082AA10 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		03E96BE91D1A5E37002AC38B /* NetworkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E96BED1D1A5E37002AC38B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03E96BEF1D1A5E37002AC38B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				037961CB1D1CC6C20082AA10 /* Object */,
 				03E96BF51D1A5E37002AC38B /* Main.storyboard */,
+				037961CD1D1D0C820082AA10 /* placeholder.png */,
 				03E96C3B1D1ABF71002AC38B /* 1.png */,
 				03E96BF81D1A5E37002AC38B /* Assets.xcassets */,
 				03E96BFA1D1A5E37002AC38B /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				03E96BFC1D1A5E37002AC38B /* LaunchScreen.storyboard in Resources */,
 				03E96BF91D1A5E37002AC38B /* Assets.xcassets in Resources */,
 				03E96C3C1D1ABF71002AC38B /* 1.png in Resources */,
+				037961CE1D1D0C820082AA10 /* placeholder.png in Resources */,
 				03E96BF71D1A5E37002AC38B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

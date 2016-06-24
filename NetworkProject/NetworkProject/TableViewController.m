@@ -12,7 +12,7 @@
 
 @interface TableViewController ()<UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) NSArray* imageInfo;
+@property (nonatomic, strong) NSArray* imageInfos;
 
 
 @property (nonatomic) NSInteger countsUploadCount;
@@ -92,17 +92,54 @@
     //return self.imageDatas.count;
     
     // 데이터 갯수
-    return self.imageInfo.count;
+    return self.imageInfos.count;
     
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.datas objectAtIndex:indexPath.row];
-    cell.imageView.image = [self.imageDatas objectAtIndex:indexPath.row];
+    NSDictionary *imageInfo = self.imageInfos[indexPath.row];
+    NSString *imageTitle = imageInfo[JSONKeyImageTitle];
+    
+    cell.textLabel.text = imageTitle;
+    
+    NSString *thumbnailURLString = imageInfo[JSONKeyThumbnailURL];
+    NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
+    
+    // 썸네일
+    UIImage *cellImage = [UIImage imageNamed:@"placeholder"];
+    
+    cell.imageView.image = cellImage;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // 실제 이미지가 섬네일일 때
+    //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
+    
+    /*
+    // 서버에서 받은 것받은 것 위에 세팅 ---- todo
+    [self.imageDatas addObject:cellImage];
+    [self.datas addObject:imageTitle];
+     */
+    
+    // dataTaskWithURL -> 이미지 다운로드하는 스레드를 만들어줌
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:thumbnailURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data != nil) {
+            UIImage *image = [UIImage imageWithData:data];
+            if (image != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UITableViewCell *cellForUpdate = [tableView cellForRowAtIndexPath:indexPath];
+                    cellForUpdate.imageView.image = image;
+                    
+                });
+            }
+        }
+    }];
+    
+    [task resume];
     
     return cell;
 }
@@ -143,7 +180,8 @@
 #pragma mark - Custom tableView
 
 -(void)refreshTable {
-    self.imageInfo = [[RequstObject shareInstance] imageInforJSONArray];
+    // ⭐️ 스레드 관련 한 번 더 보고 이해해보기
+    self.imageInfos = [[RequstObject shareInstance] imageInforJSONArray];
     dispatch_async(dispatch_get_main_queue(), ^{
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [self.tableView reloadData];
