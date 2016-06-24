@@ -76,7 +76,6 @@ static NSString *const keyVibrateSetting = @"UserVibrateIsOn";
 -(BOOL)isOnForSetting:(SettingRow)function
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    
     NSString *key = nil;
     
     if (function == SettingRowSound)

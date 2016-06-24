@@ -6,8 +6,13 @@
 //  Copyright © 2016년 baecheese. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface RequstObject : NSObject
+
+@property (nonatomic, weak) NSString *userID;
+
++(instancetype)shareInstance;
+-(void)uploadImage:(UIImage *)image title:(NSString *)title;
 
 @end

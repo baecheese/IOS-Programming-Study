@@ -85,8 +85,9 @@
     return [self.dataCenter settingTableHeaderTitleForSection:section];
 }
 
-#pragma mark setting TableView Cell delegate
+#pragma mark - setting TableView Cell delegate
 
+// 변환된 스위치 상태 저장
 - (void)settingTableViewCellSwitchValueChanged:(SettingTableViewCell *)cell isOn:(BOOL)isOn
 {
     NSIndexPath *cellIndex = [self.tableView indexPathForCell:cell];
@@ -105,7 +106,8 @@
     NSLog(@"Row Selected : %ld - %ld", indexPath.section, indexPath.row);
     
     // 0번째 섹션은 튕겨내게
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
         return;
     }
     
@@ -119,22 +121,15 @@
     
 }
 
-
-
  #pragma mark - Navigation
 
 // 세그를 통해 화면을 움직이기 전에 사용할 메소드
-
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
-     
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
      UITableViewCell *senderCell = (UITableViewCell *)sender;
-     
      NSLog(@"segue wil action: %@", senderCell.textLabel.text);
      
-     //2nd 뎁스로 들어갈때 보여줄 정보를 어떤 것인지 처리해줄 메스도 ***************
+     /* 2nd 뎁스로 들어갈때 보여줄 정보를 어떤 것인지 처리해줄 메소드 */
      WeatherTableViewController *tableViewController = segue.destinationViewController;
      if ([senderCell.textLabel.text isEqualToString:@"한국날씨"])
      {
@@ -144,45 +139,8 @@
      {
          tableViewController.weatherType = WeatherTypeWorld;
      }
-     
-     
  }
 
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 @end

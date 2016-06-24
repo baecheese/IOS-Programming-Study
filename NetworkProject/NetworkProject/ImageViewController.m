@@ -19,12 +19,11 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //전화면 imageView 가져오기 ---- 화면 나타나기 전에 가져오는 건 안되나?
+    //전화면 imageView 가져오기
     TableViewController *tableVC = [self.navigationController.viewControllers firstObject];
-    
     NSMutableArray *imageDatas = [tableVC imageDatas];
     NSInteger selectRowIndex = [tableVC selectRowIndex];
-    self.imageView = [imageDatas objectAtIndex:selectRowIndex];
+    self.imageView.image = [imageDatas objectAtIndex:selectRowIndex];
     
 }
 
