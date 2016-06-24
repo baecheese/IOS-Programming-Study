@@ -247,4 +247,43 @@
     
 }
 
+
+// 이미지 리스트 받아오기
+-(void)requestImageList {
+    NSString *URLString = [NSString stringWithFormat:@"http://ios.yevgnenll.me/api/images/?user_id=%@", self.userID];
+    NSURL *requestURL = [NSURL URLWithString:URLString];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    [request setHTTPMethod:@"GET"];
+    [request setURL:requestURL];
+    
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"%@", response);
+        NSLog(@"%@", error);
+        
+        if (data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            
+            if ([dict[@"code"] isEqualToString:@200]) {
+                NSLog(@"success");
+                
+                NSArray *contentsArray = dict[@"content"];
+                self.imageInforJSONArray = contentsArray;
+                
+                // 노티피게이션 보내기
+                [[NSNotificationCenter defaultCenter] postNotificationName:ImageListUpdataNotification object:nil];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:ImageListFailNotification object:nil];
+            }
+            NSLog(@"%@", dict);
+            NSLog(@"%@", self.imageInforJSONArray);
+        }
+    }];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [dataTask resume];
+    
+}
+
+
 @end

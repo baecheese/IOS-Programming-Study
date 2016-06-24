@@ -12,6 +12,9 @@
 
 @interface TableViewController ()<UIImagePickerControllerDelegate>
 
+@property (nonatomic, strong) NSArray* imageInfo;
+
+
 @property (nonatomic) NSInteger countsUploadCount;
 
 // table에 올릴 데이터 array
@@ -44,6 +47,12 @@
     NSMutableArray<UIImage *> *imageDats = [[NSMutableArray alloc] initWithCapacity:1];
     self.datas = datas;
     self.imageDatas = imageDats;
+    
+    // notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:ImageListUpdataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestImageList) name:ImageUploadDidSuccessNotification object:nil];
+    
+    
     
 }
 
@@ -80,7 +89,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 데이터 갯수
-    return self.imageDatas.count;
+    //return self.imageDatas.count;
+    
+    // 데이터 갯수
+    return self.imageInfo.count;
+    
 }
 
 
@@ -124,6 +137,19 @@
 {
     return 60.0f;
 }
+
+
+
+#pragma mark - Custom tableView
+
+-(void)refreshTable {
+    self.imageInfo = [[RequstObject shareInstance] imageInforJSONArray];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self.tableView reloadData];
+    });
+}
+
 
 /*
  // Override to support rearranging the table view.
@@ -209,6 +235,11 @@
     [self presentViewController:svc animated:YES completion:nil];
 }
 
+
+-(void)requestImageList {
+    [[RequstObject shareInstance] requestImageList];
+}
+
 // alert
 -(void)addAlertWithTextField:(NSString *)title message:(NSString *) message setPlaceholder:(NSString *)placeholder useProperty:(BOOL)useProperty {
     
@@ -224,18 +255,20 @@
             }];
         }
         else {
-            
             UITextField *textField = alert.textFields.firstObject;
             NSString *inputText = textField.text;
+            NSString *rowData = textField.text;
             
-            // 전해질 객체 없을 때
+            // login (property 사용 여부로 볼 것이 아닐 듯) ---- code리펙토링 요망
             if (useProperty == NO) {
                 [[RequstObject shareInstance] setUserID:inputText];
+                self.navigationItem.title = alert.textFields.firstObject.text;
+                [self requestImageList];
             }
             else {
-                // 전해질 객체 배열에 넣기 ////----------- 이부분 살리기
-//                [self.datas addObject:rowData];
-//                [self.tableView reloadData];
+                // 전해질 객체 배열에 넣기
+                [self.datas addObject:rowData];
+                [self.tableView reloadData];
                 [[RequstObject shareInstance] uploadImage:self.selectedImage
                                                     title:inputText];
             }
