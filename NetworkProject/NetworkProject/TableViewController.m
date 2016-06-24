@@ -20,7 +20,7 @@
 
 // 다음 장에서 받을 이미지
 @property (weak, nonatomic) UIImage *imageView;
-
+@property (strong, nonatomic) UIImage *selectedImage;
 @end
 
 @implementation TableViewController
@@ -192,9 +192,10 @@
     
     // 선택 이미지 프로퍼티 데이터에 넣기
     [self.imageDatas addObject: pickerEiditedImage];
+    self.selectedImage = pickerEiditedImage;
     
     [picker dismissViewControllerAnimated:YES completion:^{
-        [self addAlertWithTextField11:@"사진 업로드" message:@"사진 제목을 입력하세요" setPlaceholder:@"사진 제목" useProperty:YES];
+        [self addAlertWithTextField:@"사진 업로드" message:@"사진 제목을 입력하세요" setPlaceholder:@"사진 제목" useProperty:YES];
     }];
 }
 
@@ -207,47 +208,6 @@
     ImageViewController *svc = [storyboard instantiateViewControllerWithIdentifier:stroyboardIdentifier];
     [self presentViewController:svc animated:YES completion:nil];
 }
-
-// alert
--(void)addAlertWithTextField11:(NSString *)title message:(NSString *) message setPlaceholder:(NSString *)placeholder useProperty:(BOOL)useProperty {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        if (1 > alert.textFields.firstObject.text.length) {
-            // 입력값이 없을 때
-            [self showWarningAboutNullTextToAlert:^(UIAlertAction *action) {
-                // 다시 적으라고 하기
-                [self addAlertWithTextField:title message:message setPlaceholder:placeholder useProperty:useProperty];// ----todo --> 텍스트를 테이블로 옮겨야함. 사진명을 옮기려면 리로드해야할듯?
-            }];
-        }
-        else {
-            // 전해질 객체 없을 때
-            if (useProperty == NO) {
-                NSLog(@"입력 시, 텍스트필드 id 네트워크 연결");
-                NSLog(@"전해지는 데이터 없이 알럿만 안내");
-            }
-            else {
-                // 전해질 객체 배열에 넣기
-                self
-            }
-        }
-    }];
-    
-    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleDefault handler:nil];
-    
-    [alert addAction:okButton];
-    [alert addAction:cancelButton];
-    
-    // alert 내에 텍스트필드 추가
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        [textField setPlaceholder:placeholder];
-    }];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
 
 // alert
 -(void)addAlertWithTextField:(NSString *)title message:(NSString *) message setPlaceholder:(NSString *)placeholder useProperty:(BOOL)useProperty {
@@ -264,17 +224,19 @@
             }];
         }
         else {
+            UITextField *textField = alert.textFields.firstObject;
+            NSString *inputText = textField.text;
+            
             // 전해질 객체 없을 때
             if (useProperty == NO) {
-                NSLog(@"입력 시, 텍스트필드 id 네트워크 연결");
-                NSLog(@"전해지는 데이터 없이 알럿만 안내");
+                [[RequstObject shareInstance] setUserID:inputText];
             }
             else {
                 // 전해질 객체 배열에 넣기
-                UITextField *imageNameTextField = alert.textFields.firstObject;
-                NSString *rowData = imageNameTextField.text;
-                [self.datas addObject:rowData];
-                [self.tableView reloadData];
+//                [self.datas addObject:rowData];
+//                [self.tableView reloadData];
+                [[RequstObject shareInstance] uploadImage:self.selectedImage
+                                                    title:inputText];
             }
         }
     }];
