@@ -224,6 +224,7 @@
             }];
         }
         else {
+            
             UITextField *textField = alert.textFields.firstObject;
             NSString *inputText = textField.text;
             
@@ -232,7 +233,7 @@
                 [[RequstObject shareInstance] setUserID:inputText];
             }
             else {
-                // 전해질 객체 배열에 넣기
+                // 전해질 객체 배열에 넣기 ////----------- 이부분 살리기
 //                [self.datas addObject:rowData];
 //                [self.tableView reloadData];
                 [[RequstObject shareInstance] uploadImage:self.selectedImage

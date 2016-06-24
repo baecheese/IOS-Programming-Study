@@ -88,82 +88,161 @@
     
     
     ///
+//
+//    
+//    /* for 문으로 바꿈 */
+//    NSString *boundary = @"------------boundary---";
+//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+//    
+//    NSString *imageUploadURLString = @"http://ios.yevgnenll.me/api/images/";
+//    NSURL *requestURL = [NSURL URLWithString:imageUploadURLString];
+//    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+//    [request setHTTPMethod:@"POST"];
+//    [request setURL:requestURL];
+//    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+//    
+//    NSMutableData *body = [NSMutableData data];
+//    
+//    NSMutableDictionary *bodyParams = [[NSMutableDictionary alloc] init];
+//    [bodyParams setObject:self.userID forKey:@"user_id"];
+//    [bodyParams setObject:title forKey:@"title"];
+//    
+//    NSData *boundaryData = [[NSString stringWithFormat:@"\n---%@\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+//    
+//    for (NSString *key in bodyParams) {
+//        [body appendData:boundaryData];
+//        
+//        NSData *valueKeyDate = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\n\n", key] dataUsingEncoding:NSUTF8StringEncoding];
+//        [body appendData:valueKeyDate];
+//        
+//        NSString *value = bodyParams[key];
+//        NSData *valueData = [[NSString stringWithFormat:@"%@\n", value] dataUsingEncoding:NSUTF8StringEncoding];
+//        [body appendData:valueData];
+//        
+//    }
+//    
+//    [body appendData:boundaryData];
+//    
+//    NSData *imageKeyData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_data\"; filename=\"image.jpeg\"\n"] dataUsingEncoding:NSUTF8StringEncoding];
+//    
+//    [body appendData:imageKeyData];
+//    
+//    NSData *imageContentTypeDatas = [@"Content-Type: image/jpeg\n\n" dataUsingEncoding:NSUTF8StringEncoding];
+//    [body appendData:imageContentTypeDatas];
+//    
+//    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+//    [body appendData:imageData];
+//    
+//    NSData *finishBoundaryData = [[NSString stringWithFormat:@"\n---%@----\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+//    [body appendData:finishBoundaryData];
+//    
+//    [request setHTTPBody:body];
+//    
+//    
+//    /* ------------------------------------------- */
+//    
+//    // 웹에 접속하려고 할 때, session객체를 통해서 접근 가능 = 네트워크 통신을 할 수 있도록 도와줌.
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    
+//    /* 요청서 */
+//    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:nil completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        
+//        if (error != nil) {
+//            NSLog(@"Error occred: %@", error);
+//            return;
+//        }
+//        
+//        if (data == nil) {
+//            NSLog(@"Data dosen't exist");
+//            return;
+//        }
+//        
+//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+//        NSLog(@"%@", dict);
+//        
+//    }];
+//    
+//    // 실질적 업로드 작업 start
+//    [uploadTask resume];
+
     
-    /* for 문으로 바꿈 */
-    NSString *boundary = @"------------boundary---";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    NSString *boundary = @"-----------------yagom";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     
     NSString *imageUploadURLString = @"http://ios.yevgnenll.me/api/images/";
     NSURL *requestURL = [NSURL URLWithString:imageUploadURLString];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    // create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:@"POST"];
     [request setURL:requestURL];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     NSMutableData *body = [NSMutableData data];
     
     NSMutableDictionary *bodyParams = [[NSMutableDictionary alloc] init];
     [bodyParams setObject:self.userID forKey:@"user_id"];
-    [bodyParams setObject:title forKey:@"title"];
+    [bodyParams setObject:title forKey:@"title"];;
     
-    NSData *boundaryData = [[NSString stringWithFormat:@"\n---%@\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *boundaryData = [[NSString stringWithFormat:@"\n--%@\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
     
     for (NSString *key in bodyParams) {
+        
         [body appendData:boundaryData];
         
-        NSData *valueKeyDate = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\n\n", key] dataUsingEncoding:NSUTF8StringEncoding];
-        [body appendData:valueKeyDate];
+        NSData *valueKeyData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\n\n", key] dataUsingEncoding:NSUTF8StringEncoding];
+        [body appendData:valueKeyData];
         
         NSString *value = bodyParams[key];
         NSData *valueData = [[NSString stringWithFormat:@"%@\n", value] dataUsingEncoding:NSUTF8StringEncoding];
         [body appendData:valueData];
-        
     }
     
     [body appendData:boundaryData];
     
-    NSData *imageKeyData = [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_data\"; filename=\"image.jpeg\"\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *imageKeyData = [[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_data\"; filename=\"image.jpeg\"\n"]] dataUsingEncoding:NSUTF8StringEncoding];
     
     [body appendData:imageKeyData];
     
-    NSData *imageContentTypeDatas = [@"Content-Type: image/jpeg\n\n" dataUsingEncoding:NSUTF8StringEncoding];
-    [body appendData:imageContentTypeDatas];
+    NSData *imageContentTypeData = [@"Content-Type: image/jpeg\n\n" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [body appendData:imageContentTypeData];
     
     NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
-    [body appendData:imageData];
+    [body appendData:[NSData dataWithData:imageData]];
     
-    NSData *finishBoundaryData = [[NSString stringWithFormat:@"\n---%@----\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *finishBoundaryData = [[NSString stringWithFormat:@"\n--%@--\n",boundary] dataUsingEncoding:NSUTF8StringEncoding];
     [body appendData:finishBoundaryData];
-    
     [request setHTTPBody:body];
     
     
-    /* ------------------------------------------- */
-    
-    // 웹에 접속하려고 할 때, session객체를 통해서 접근 가능 = 네트워크 통신을 할 수 있도록 도와줌.
     NSURLSession *session = [NSURLSession sharedSession];
-    
-    /* 요청서 */
-    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:nil completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (error != nil) {
-            NSLog(@"Error occred: %@", error);
-            return;
-        }
-        
-        if (data == nil) {
-            NSLog(@"Data dosen't exist");
-            return;
-        }
-        
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        NSLog(@"%@", dict);
-        
-    }];
-    
-    // 실질적 업로드 작업 start
+    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
+                                                               fromData:nil
+                                                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                          
+                                                          if (error != nil) {
+                                                              NSLog(@"Error occured : %@", error);
+                                                              return;
+                                                          }
+                                                          
+                                                          if (data == nil) {
+                                                              NSLog(@"Data dosen't exist");
+                                                              return;
+                                                          }
+                                                          
+                                                          NSLog(@"%@", response);
+                                                          
+                                                          NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                               options:NSJSONReadingMutableLeaves
+                                                                                                                 error:nil];
+                                                          NSLog(@"%@",dict);
+                                                      }];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [uploadTask resume];
+    
+    
+    
     
     
 }
