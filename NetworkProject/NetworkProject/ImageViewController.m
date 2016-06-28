@@ -30,9 +30,12 @@
     //self.imageView.image = [imageDatas objectAtIndex:selectRowIndex];
     
     /* SDWebImage 사용 */
-    NSMutableArray *imageURLArray = [tableVC imageURLArray];
-    NSURL *imageURL = [imageURLArray objectAtIndex:selectRowIndex];
-    [self.imageView sd_setImageWithURL:imageURL];
+    // 선택된 url string -> url로 가져옴
+    NSMutableArray<NSURL *> *imageURLArray = [[NSMutableArray alloc]initWithCapacity:1];
+    imageURLArray = [tableVC imageURLArray];
+    NSURL *selectImageURL = [imageURLArray objectAtIndex:selectRowIndex];
+    //
+    [self.imageView sd_setImageWithURL:selectImageURL];
     
     /*
     [self.imageView sd_setImageWithURL:imageURL placeholderImage:nil options: SDWebImageProgressiveDownload | SDWebImageCacheMemoryOnly];

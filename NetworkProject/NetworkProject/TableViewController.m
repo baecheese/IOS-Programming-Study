@@ -51,8 +51,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:ImageListUpdataNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestImageList) name:ImageUploadDidSuccessNotification object:nil];
     
-    
-    
+    // imageURLArray 초기화
+    NSMutableArray<NSString *> *imageURLArray = [[NSMutableArray alloc]initWithCapacity:1];
+    self.imageURLArray = imageURLArray;
 }
 
 
@@ -109,14 +110,19 @@
     NSString *thumbnailURLString = imageInfo[JSONKeyThumbnailURL];
     NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
     
-    // URL Array 프로퍼티에 서버에서 내려받은 이미지 URL 넣기
-    [self.imageURLArray addObject:thumbnailURL];
+    // URL Array 프로퍼티에 서버에서 내려받은 이미지 URL 넣기 (String으로 넣어볼까) -- todo
+    NSString *imageURLString = imageInfo[JSONKeyImageURL];
+    NSURL *imageURL = [NSURL URLWithString:imageURLString];
+    [self.imageURLArray addObject:imageURL];
     
+    
+    /*
     // 썸네일
     UIImage *cellImage = [UIImage imageNamed:@"placeholder"];
     
     cell.imageView.image = cellImage;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+     */
     
     // 실제 이미지가 섬네일일 때
     //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
