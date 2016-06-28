@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) NSArray* imageInfos;
 
-
 @property (nonatomic) NSInteger countsUploadCount;
 
 // table에 올릴 데이터 array
@@ -109,6 +108,9 @@
     
     NSString *thumbnailURLString = imageInfo[JSONKeyThumbnailURL];
     NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
+    
+    // URL Array 프로퍼티에 서버에서 내려받은 이미지 URL 넣기
+    [self.imageURLArray addObject:thumbnailURL];
     
     // 썸네일
     UIImage *cellImage = [UIImage imageNamed:@"placeholder"];
@@ -248,6 +250,7 @@
     //picker를 모달로 내려준다.
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {

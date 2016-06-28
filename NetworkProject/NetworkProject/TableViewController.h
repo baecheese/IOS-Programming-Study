@@ -12,5 +12,5 @@
 
 @property (nonatomic) NSInteger selectRowIndex;
 @property (nonatomic, strong) NSMutableArray<UIImage *> *imageDatas;
-
+@property (nonatomic, strong) NSMutableArray<NSURL *> *imageURLArray;
 @end

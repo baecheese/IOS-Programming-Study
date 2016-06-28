@@ -8,10 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-
+/*
 XCUIElement *loginpageIcon = [[XCUIApplication alloc] init].scrollViews.otherElements.icons[@"LoginPage"];
 [loginpageIcon tap];
 [loginpageIcon tap];
+ */
 @interface LoginPageUITests : XCTestCase
 
 @end

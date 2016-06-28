@@ -8,6 +8,8 @@
 
 #import "ImageViewController.h"
 #import "TableViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImageManager.h>
 
 @interface ImageViewController ()
 
@@ -19,11 +21,22 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //전화면 imageView 가져오기
+    /* 전화면 imageView 가져오기 */
     TableViewController *tableVC = [self.navigationController.viewControllers firstObject];
-    NSMutableArray *imageDatas = [tableVC imageDatas];
     NSInteger selectRowIndex = [tableVC selectRowIndex];
-    self.imageView.image = [imageDatas objectAtIndex:selectRowIndex];
+    
+    // (네트워크 미사용) 이미지 array
+    // NSMutableArray *imageDatas = [tableVC imageDatas];
+    //self.imageView.image = [imageDatas objectAtIndex:selectRowIndex];
+    
+    /* SDWebImage 사용 */
+    NSMutableArray *imageURLArray = [tableVC imageURLArray];
+    NSURL *imageURL = [imageURLArray objectAtIndex:selectRowIndex];
+    [self.imageView sd_setImageWithURL:imageURL];
+    
+    /*
+    [self.imageView sd_setImageWithURL:imageURL placeholderImage:nil options: SDWebImageProgressiveDownload | SDWebImageCacheMemoryOnly];
+     */
     
 }
 
