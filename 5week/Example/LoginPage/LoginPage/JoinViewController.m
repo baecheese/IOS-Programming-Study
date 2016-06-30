@@ -98,8 +98,7 @@
         [self showDefaultStyleAlert:@"경고" message:@"패스워드가 너무 짧습니다." actionMessage:@"확인"];
         return NO;
     }
-    
-    if ((_joinPWTF.text == _joinRePWTF.text))
+    else if ((self.joinPWTF.text != self.joinRePWTF.text))
     {
         [self showDefaultStyleAlert:@"경고" message:@"패스워드가 일치하지 않습니다." actionMessage:@"확인"];
         return NO;
