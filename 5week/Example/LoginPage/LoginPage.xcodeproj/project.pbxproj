@@ -20,6 +20,7 @@
 		036D93FA1CF1CBB90036EC84 /* LoginPageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D93F91CF1CBB90036EC84 /* LoginPageUITests.m */; };
 		03763F701CFEB2BF0038F8E2 /* space-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03763F6F1CFEB2BF0038F8E2 /* space-2.jpg */; };
 		0399BA0D1D00082900992A00 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0399BA0C1D00082900992A00 /* MainPageViewController.m */; };
+		03A4F85D1D250B730028337A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03A4F85C1D250B730028337A /* 1.jpg */; };
 		03B7AA171D0589A50043188D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7AA161D0589A50043188D /* User.m */; };
 		03B7AA1A1D0598A70043188D /* UserRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7AA191D0598A70043188D /* UserRepository.m */; };
 		03B7AA1B1D0598A70043188D /* UserRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7AA191D0598A70043188D /* UserRepository.m */; };
@@ -67,6 +68,7 @@
 		03763F6F1CFEB2BF0038F8E2 /* space-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "space-2.jpg"; sourceTree = "<group>"; };
 		0399BA0B1D00082900992A00 /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageViewController.h; sourceTree = "<group>"; };
 		0399BA0C1D00082900992A00 /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageViewController.m; sourceTree = "<group>"; };
+		03A4F85C1D250B730028337A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		03B7AA151D0589A50043188D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		03B7AA161D0589A50043188D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		03B7AA181D0598A70043188D /* UserRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRepository.h; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				036D93DD1CF1CBB90036EC84 /* Main.storyboard */,
 				036D93E01CF1CBB90036EC84 /* Assets.xcassets */,
 				036D93E21CF1CBB90036EC84 /* LaunchScreen.storyboard */,
+				03A4F85C1D250B730028337A /* 1.jpg */,
 				03763F6F1CFEB2BF0038F8E2 /* space-2.jpg */,
 				036D93E51CF1CBB90036EC84 /* Info.plist */,
 				036D93D41CF1CBB90036EC84 /* Supporting Files */,
@@ -281,6 +284,7 @@
 				032C48F71D01B4090076DAEB /* userList.plist in Resources */,
 				03763F701CFEB2BF0038F8E2 /* space-2.jpg in Resources */,
 				036D93E41CF1CBB90036EC84 /* LaunchScreen.storyboard in Resources */,
+				03A4F85D1D250B730028337A /* 1.jpg in Resources */,
 				036D93E11CF1CBB90036EC84 /* Assets.xcassets in Resources */,
 				036D93DF1CF1CBB90036EC84 /* Main.storyboard in Resources */,
 			);

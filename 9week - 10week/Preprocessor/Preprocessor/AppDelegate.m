@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  NetworkProject
+//  Preprocessor
 //
-//  Created by 배지영 on 2016. 6. 22..
+//  Created by 배지영 on 2016. 6. 30..
 //  Copyright © 2016년 baecheese. All rights reserved.
 //
 
@@ -17,31 +17,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    /* 디바이스 버전 정보 가져올 수 있는 메소드 */
-    NSString *OSVersion = [[UIDevice currentDevice] systemVersion];
-    NSLog(@"sysemVersion: %@", OSVersion);
+    /* 애플리케이션 버전 아는 법*/
+    NSURL *infoURL = [[NSBundle mainBundle] URLForResource:@"Info" withExtension:@"plst"];
+    NSDictionary *infoDic = [NSDictionary dictionaryWithContentsOfURL:infoURL];
+    NSLog(@"%@", infoDic);
+    NSLog(@"%@", infoDic[@"CFBundleShortVersionString"]);
     
-    CGFloat OSVersionFloat = [OSVersion floatValue];
+    NSLog(@"%@", projectConstantMyName);
     
-    if (OSVersionFloat >= 9.0) {
-        NSLog(@"iOS 9");
-    }
-    else if (OSVersionFloat >= 8.0) {
-        NSLog(@"iOS 8");
-    }
-    else {
-        NSLog(@"under iOS8");
-    }
-    
-    /* NS_CLASS_AVAILABLE_IOS(3_2) */
-    UIGestureRecognizer *reconizer = [[UIGestureRecognizer alloc]init];
-    
-    if ([reconizer respondsToSelector:@selector(allowedPressTypes)]) {
-        NSLog(@"can use allowdTouchType");
-    }
-    else {
-        NSLog(@"can not use allowdTouchType");
-    }
+    /* 전처리기 사용 예제 */
+    NSLog(@"언제나 보일 수 있는 로그");
+    LOG_LEV_ONE(@"로그 레벨 1 : 플로우만 체크하는 로그");
+    LOG_LEV_TWO(@"로그 레벨 2 : 조금더 깊은 내용의 로그");
+    NSLog(@"%@", projectConstantMyName);
     
     return YES;
 }

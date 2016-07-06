@@ -1,0 +1,50 @@
+//
+//  PrefixHeader.pch
+//  Preprocessor
+//
+//  Created by 배지영 on 2016. 6. 30..
+//  Copyright © 2016년 baecheese. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#import <Foundation/Foundation.h>
+
+/* 프로젝트 전반에 걸쳐 사용할 상수 */
+static NSString *const projectConstantMyName = @"치즈";
+
+
+#define USE_LOG_LEVEL_1
+#define USE_LOG_LEVEL_2
+
+/* USE_LOG_LEVEL_1가 define이 되어있으면 할 것 */
+#ifdef USE_LOG_LEVEL_1
+#define LOG_LEV_ONE( s, ...) NSLog(@"%s(%d) %@", __FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+
+/* 아니면 할 것 */
+
+#else
+
+#define LOG_LEV_ONE( s, ...)
+
+#endif
+
+#ifdef USE_LOG_LEVEL_2
+
+#define LOG_LEV_TWO( s, ...) NSLog(@"%s(%d) %@", __FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+
+#else
+
+#define USE_LEV_TWO( s, ...)
+
+#endif
+
+/* s를 가지고 stringWithFormat:(s) 에 넣는다. */
+
+#define NSLog( s, ...) NSLog(@"%s(%d) %@", __FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])

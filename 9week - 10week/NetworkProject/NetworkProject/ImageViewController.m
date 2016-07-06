@@ -21,6 +21,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     /* 전화면 imageView 가져오기 */
     TableViewController *tableVC = [self.navigationController.viewControllers firstObject];
     NSInteger selectRowIndex = [tableVC selectRowIndex];
