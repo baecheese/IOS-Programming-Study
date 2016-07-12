@@ -27,7 +27,7 @@
     
     NSMutableDictionary *bodyParams = [[NSMutableDictionary alloc] init];
     [bodyParams setObject:self.userID forKey:@"user_id"];
-    [bodyParams setObject:title forKey:@"title"];
+    [bodyParams setObject:title forKey:@"title"];;
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://ios.yevgnenll.me/api/images/" parameters:bodyParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
@@ -200,28 +200,16 @@
 //    [uploadTask resume];
 
     
-    /* mutipart의 boundary String 설정
-       -> 이는 추후 requst 패킷 안에 넣어줄 것 */
-    
     NSString *boundary = @"-----------------yagom";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     
-    /* base url에 + 업로드 파일 경로 -> 그 url로 request url 생성*/
-    
     NSString *imageUploadURLString = @"http://ios.yevgnenll.me/api/images/";
     NSURL *requestURL = [NSURL URLWithString:imageUploadURLString];
-
-    /* URLRquest로 요청서 작성 (어떤 contents 타입 원하는지 설정) */
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:@"POST"];
     [request setURL:requestURL];
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
-    
-    /* 실질적인 Body 작성
-     boundary String을 Data형식으로 바꿔서 첫 줄에 붙여주는 것으로 시작
-     boundary - userID - boundary - imageTitle - boundary - imageData(imageFileName 포함) - finishBoundary  */
     
     NSMutableData *body = [NSMutableData data];
     
@@ -253,15 +241,13 @@
     
     [body appendData:imageContentTypeData];
     
-    /* 이미지를 NSData형식으로 바꿈 (뒤에 숫자는 압축 비율. 0.1 = 원본 이미지의 10%로 보내달라.)*/
-    /* jpeg로 바꿨으니 나중에 쓸 때도 jpeg로 */
-    
     NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
     [body appendData:[NSData dataWithData:imageData]];
     
     NSData *finishBoundaryData = [[NSString stringWithFormat:@"\n--%@--\n",boundary] dataUsingEncoding:NSUTF8StringEncoding];
     [body appendData:finishBoundaryData];
     [request setHTTPBody:body];
+    
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
@@ -286,7 +272,6 @@
                                                           NSLog(@"%@",dict);
                                                       }];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    // 실질적 업로드 작업 start
     [uploadTask resume];
     
     

@@ -22,6 +22,8 @@ static NSString *JSONKeyImageTitle = @"title";
 
 @interface RequstObject : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate, NSURLSessionDelegate>
 
+
+
 @property (nonatomic, strong) NSArray *imageInforJSONArray;
 @property (nonatomic, strong) NSString *userID;
 
