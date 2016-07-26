@@ -21,7 +21,7 @@
 * [절대값 구하기 / 대소문자 구분 / 윤년 구하는 문제](https://github.com/baecheese/IOS-Programming-Study/blob/master/2week/Example/ConditionalSentence/conditionalSentence/main.m)
 * [factorial](https://github.com/baecheese/IOS-Programming-Study/blob/master/2week/Example/Factorial/Factorial/main.m)
 * [multiplicationMachine](https://github.com/baecheese/IOS-Programming-Study/blob/master/2week/Example/Factorial/Factorial/main.m)
-* [FloorSpace](https://github.com/baecheese/IOS-Programming-Study/blob/master/2week/Example/RoomFloorSpace/FloorSpace/main.m)
+* [FloorSpace](https://github.com/baecheese/IOS-Programming-Study/blob/master/2week/Example/RoomFloorSpace/FloorSpace/main.m) 
 
 (2) 조건문, 반복문
 
