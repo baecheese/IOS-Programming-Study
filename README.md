@@ -7,8 +7,8 @@
 ### Week 1
 #### 컴퓨터 개론
 * 네트워크, 알고리즘, 데이터베이스, 자료구조
-* [컴퓨터의 역사와 컴퓨터 구성](http://sibalja.tistory.com/29)
-* [컴퓨터의 구조 - 하버드, 폰노이만 구조](http://sibalja.tistory.com/30)
+   * [컴퓨터의 역사와 컴퓨터 구성](http://sibalja.tistory.com/29)
+   * [컴퓨터의 구조 - 하버드, 폰노이만 구조](http://sibalja.tistory.com/30)
 
 ### Week 2
 #### C언어를 통한 프로그래밍 기초 개념 학습
@@ -33,11 +33,7 @@
 * [ToolBox](https://github.com/baecheese/IOS-Programming-Study/tree/master/2week/Example/ToolBoxClass20160510/ToolBoxClass)
 * [VendingMachine](https://github.com/baecheese/IOS-Programming-Study/tree/master/2week/Example/VendingMachine)
 
-
-
-(2) 조건문, 반복문
-
-### 3주차
+### Week 3
 
 1. D-Day 프로그램 만들기
 
