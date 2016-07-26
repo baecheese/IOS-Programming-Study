@@ -33,21 +33,22 @@
 * [ToolBox](https://github.com/baecheese/IOS-Programming-Study/tree/master/2week/Example/ToolBoxClass20160510/ToolBoxClass)
 * [VendingMachine](https://github.com/baecheese/IOS-Programming-Study/tree/master/2week/Example/VendingMachine)
 
-### Week 3
+### Week 3 - 5
+#### Objective-C를 기반한 프로그래밍 실습
+* [NSENUM](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/Example/NS_ENUM_Example0519/Example0519/main.m)
+* [UIViewController_LifeCycle](https://github.com/baecheese/IOS-Programming-Study/tree/master/3week/Example/UIViewController_LifeCycle/UIViewController_LifeCycle)
+* UI 실습 : view, label, imageview
+   * 실습 이미지
+   * [UIPractice](https://github.com/baecheese/IOS-Programming-Study/blob/master/4week/Example/UIPractice/UITest/ViewController.m)
 
-1. D-Day 프로그램 만들기
+#### Algorithm
+* [Diamond](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/Diamond/Diamond/main.c)
+* [Steak](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/SteakMake/steakNew/main.c)
+* 요일 맞추기
+   * [문제](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/WhatDayOfTheWeek/question.md)
+   * [실습 코드](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/WhatDayOfTheWeek/WhatDayOfTheWeek/main.c)
 
-(1) UML 작성
 
-(2) 코드 작성 및 버그 수정 
-
-2. Objective-C를 기반한 프로그래밍
-
-(1) 변수
-
-(2) 객체지향
-
-(3) 클래스와 객체
 
 # Last Team Project - Hoomi
 #### 미디어를 활용한 엣지있는 이력/포트폴리오 관리
