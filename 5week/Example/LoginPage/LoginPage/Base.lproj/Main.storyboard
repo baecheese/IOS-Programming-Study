@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="space-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6p1-UA-smS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="space-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6p1-UA-smS">
                                 <rect key="frame" x="0.0" y="0.0" width="858" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="571" id="axj-i3-6Ii"/>
@@ -193,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBi-je-ziy">
-                                <rect key="frame" x="251.5" y="279" width="97" height="42"/>
+                                <rect key="frame" x="252" y="279" width="97" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="login out">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

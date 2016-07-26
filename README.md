@@ -38,20 +38,25 @@
 * [NSENUM](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/Example/NS_ENUM_Example0519/Example0519/main.m)
 * [UIViewController_LifeCycle](https://github.com/baecheese/IOS-Programming-Study/tree/master/3week/Example/UIViewController_LifeCycle/UIViewController_LifeCycle)
 * UI 실습 : view, label, imageview
-   * 실습 이미지
+   * [이미지](https://github.com/baecheese/IOS-Programming-Study/tree/master/4week/Example/UIPractice)
    * [UIPractice](https://github.com/baecheese/IOS-Programming-Study/blob/master/4week/Example/UIPractice/UITest/ViewController.m)
+* Login Page
+   * [해당 실습 화면 시연 영상이 첨부된 수강 후기](http://www.fastcampus.co.kr/dev_school_ids_blog_student_3/)
+   * [Login Page code](https://github.com/baecheese/IOS-Programming-Study/tree/master/5week/Example/LoginPage/LoginPage)
 
 #### Algorithm
 * [Diamond](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/Diamond/Diamond/main.c)
 * [Steak](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/SteakMake/steakNew/main.c)
+* [Steak2](https://github.com/baecheese/IOS-Programming-Study/blob/master/4week/algorithm/stack/stack/main.c)
 * 요일 맞추기
    * [문제](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/WhatDayOfTheWeek/question.md)
    * [실습 코드](https://github.com/baecheese/IOS-Programming-Study/blob/master/3week/algorithm/WhatDayOfTheWeek/WhatDayOfTheWeek/main.c)
+* [이름을 넣으면 초성을 return하는 알고리즘](https://github.com/baecheese/IOS-Programming-Study/blob/master/4week/algorithm/ChousungProject/ChousungProject/main.m)
+* [Queue](https://github.com/baecheese/IOS-Programming-Study/blob/master/4week/algorithm/Queue/Queue/main.c)
 
-
+### Week 6 - 10 (작성중)
 
 # Last Team Project - Hoomi
 #### 미디어를 활용한 엣지있는 이력/포트폴리오 관리
-
-* [iOS repositorie](https://github.com/fastcampus-HOOMI/iOS-HOOMI)
-* [Team document share wiki](https://github.com/najanda89/HOOMI-wiki)
+#### 🐙 [iOS repositorie](https://github.com/fastcampus-HOOMI/iOS-HOOMI)
+#### 🐙 [Team document share wiki](https://github.com/najanda89/HOOMI-wiki)
