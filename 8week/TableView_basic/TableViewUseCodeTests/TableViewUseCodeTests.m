@@ -1,18 +1,18 @@
 //
-//  UIAlertControllerTests.m
-//  UIAlertControllerTests
+//  TableViewUseCodeTests.m
+//  TableViewUseCodeTests
 //
-//  Created by 배지영 on 2016. 6. 3..
+//  Created by 배지영 on 2016. 6. 15..
 //  Copyright © 2016년 baecheese. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface UIAlertControllerTests : XCTestCase
+@interface TableViewUseCodeTests : XCTestCase
 
 @end
 
-@implementation UIAlertControllerTests
+@implementation TableViewUseCodeTests
 
 - (void)setUp {
     [super setUp];
