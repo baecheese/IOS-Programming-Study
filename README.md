@@ -62,11 +62,11 @@
 
 #### UI 심화 과정
 * [Textfeild Delegate](https://github.com/baecheese/IOS-Programming-Study/blob/master/6week/TextFdDelegate/TextFdDelegate/ViewController.m)
-* TableView 실습
+
+#### TableView Example
+  * [TableView code](https://github.com/baecheese/IOS-Programming-Study/tree/master/6week/TableViewExample_%EB%8F%99%EB%AC%BC%EB%86%8D%EC%9E%A5/TableViewExample)
 
   ![동물농장 예제 이미지](https://www.appcoda.com/wp-content/uploads/2014/03/indexedtable-demo.jpg)
-
-  * [TableView code](https://github.com/baecheese/IOS-Programming-Study/tree/master/6week/TableViewExample_%EB%8F%99%EB%AC%BC%EB%86%8D%EC%9E%A5/TableViewExample)
 
 
 #### WebView Example
