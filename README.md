@@ -1,5 +1,4 @@
 #IOS-Programming-Study 학습 개요
-## fastcampus IOS School 1기
 
 ### 🍒 학습 기록 블로그
 - http://sibalja.tistory.com/
