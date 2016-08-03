@@ -68,7 +68,7 @@
 
 [TableView 실습 코드 출처](https://www.appcoda.com/ios-programming-index-list-uitableview/)
 
-	* [TableView](https://github.com/baecheese/IOS-Programming-Study/tree/master/6week/TableViewExample_%EB%8F%99%EB%AC%BC%EB%86%8D%EC%9E%A5/TableViewExample)
+  * [TableView](https://github.com/baecheese/IOS-Programming-Study/tree/master/6week/TableViewExample_%EB%8F%99%EB%AC%BC%EB%86%8D%EC%9E%A5/TableViewExample)
 
 
 #### WebView Example
