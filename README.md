@@ -63,7 +63,7 @@
 #### UI 심화 과정
 * [Textfeild Delegate](https://github.com/baecheese/IOS-Programming-Study/blob/master/6week/TextFdDelegate/TextFdDelegate/ViewController.m)
 * [TableView](https://github.com/baecheese/IOS-Programming-Study/tree/master/6week/TableViewExample_%EB%8F%99%EB%AC%BC%EB%86%8D%EC%9E%A5/TableViewExample)
-![동물농장 예제 이미지](https://www.appcoda.com/ios-programming-index-list-uitableview/)
+![동물농장 예제 이미지](https://www.appcoda.com/wp-content/uploads/2014/03/indexedtable-demo.jpg)
 [TableView 실습 코드 출처](https://www.appcoda.com/ios-programming-index-list-uitableview/)
 
 #### WebView Example
@@ -71,8 +71,7 @@
 
 * [WebView code](https://github.com/baecheese/IOS-Programming-Study/blob/master/6week/WebView/WebView/ViewController.m)
 
-![](http://cfile24.uf.tistory.com/image/2128834E57A0BE181B1D63)
-![](http://cfile10.uf.tistory.com/image/22164B4E57A0BE1A2F40D8)
+![](http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile3.uf.tistory.com%2Fimage%2F2744583857A2077D1F727A)
 
 ### Week 7 - 10 (작성중)
 
