@@ -76,9 +76,27 @@
 
 ![](http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile3.uf.tistory.com%2Fimage%2F2744583857A2077D1F727A)
 
-### Week 7 - 10 (작성중)
+### Week 7 
 
-# Last Team Project - Hoomi
+#### 심화 수업
+* [UIAlert & UIActionSheet](https://github.com/baecheese/IOS-Programming-Study/blob/master/7week/AlertExample/AlertExample/ViewController.m)
+
+* [ImagePicker](https://github.com/baecheese/IOS-Programming-Study/blob/master/7week/MyimagePicker/MyimagePicker/ViewController.m)
+
+* [Property and KVO](https://github.com/baecheese/IOS-Programming-Study/tree/master/7week/PropertyAndKVO/PropertyAndKVO)
+
+#### UITableViewCell Editing Example
+* [UITableViewCellEditing](https://github.com/baecheese/IOS-Programming-Study/tree/master/7week)
+![](http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile23.uf.tistory.com%2Fimage%2F274EFB4A57A21CC71CBDF8)
+
+#### CustomTable Example
+* [CustomTable code](https://github.com/baecheese/IOS-Programming-Study/tree/master/7week/CustomTable_Delegate/CustomTable)
+
+![](http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F232CB43B57A2198C14083E)
+
+### Week 8- 10 (작성중)
+
+# 🌙 Last Team Project - Hoomi
 #### 미디어를 활용한 엣지있는 이력/포트폴리오 관리
 #### 🐙 [iOS repositorie](https://github.com/fastcampus-HOOMI/iOS-HOOMI/tree/Dev)
 #### 🐙 [Team document share wiki](https://github.com/najanda89/HOOMI-wiki)

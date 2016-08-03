@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIActionSheetDelegate>
 
 @end
 
@@ -36,27 +36,21 @@
     [alert addAction:okButton];
     [alert addAction:destructiveAction];
     [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:^{
-        NSLog(@"이건 뭐지");
-    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
-// --?
-- (IBAction)clikAcrionSheetBtn:(UIButton *)sender
+// ActionSheet
+- (IBAction)clikActionSheetBtn:(UIButton *)sender
 {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Note" otherButtonTitles:nil];
-    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"ok");
-    }];
-    UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"파괴" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"파괴");
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"취소");
-    }];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with the file?"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
     
+    [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
