@@ -94,7 +94,30 @@
 
 ![](http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F232CB43B57A2198C14083E)
 
-### Week 8- 10 (작성중)
+
+### Week 8
+
+#### text & page moving
+
+##### project code
+* [text & page moving code](https://github.com/baecheese/IOS-Programming-Study/tree/master/8week/TextfieldAndLabel/TextfieldAndLabel)
+
+##### explanation
+![](http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F2203F53557AED91F19909B)
+
+1. ViewController - SecondViewController
+	- On viewController you can type text in a textfiled.
+	- And if you click button, Text move to label in ViewController and SecondViewController.
+	- When text move to SecondViewController, This use segue. (Method: prepareForSegue)
+
+2. ThreeViewController
+	- Click '이전화면' button to return to the previous display.
+	- Press '다음화면' button to navigate to next screen.
+
+3. CustomMovePage
+	- If you enter page number in textfiled, You can return to the refering page.
+
+### Week 8 - 10 (작성중)
 
 # 🌙 Last Team Project - Hoomi
 #### 미디어를 활용한 엣지있는 이력/포트폴리오 관리
