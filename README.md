@@ -69,7 +69,7 @@
 
 
 #### WebView Example
-* [시연 영상](https://youtu.be/mkAgOJzKVCc)
+#### 📼 [preview video](https://youtu.be/mkAgOJzKVCc)
 
 * [WebView code](https://github.com/baecheese/IOS-Programming-Study/blob/master/6week/WebView/WebView/ViewController.m)
 
@@ -121,5 +121,6 @@
 
 # 🌙 Last Team Project - Hoomi
 #### 미디어를 활용한 엣지있는 이력/포트폴리오 관리
+#### 📼 [preview video](https://youtu.be/h7iRKA_JIxs)
 #### 🐙 [iOS repositorie](https://github.com/fastcampus-HOOMI/iOS-HOOMI/tree/Dev)
 #### 🐙 [Team document share wiki](https://github.com/najanda89/HOOMI-wiki)
